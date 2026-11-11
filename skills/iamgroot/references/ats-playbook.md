@@ -137,3 +137,10 @@ window.__cards=()=>[...document.querySelectorAll('[name^="cards["]')].filter(e=>
 - An hCaptcha widget is present on the page. It normally passes silently on submit. If a challenge is shown, stop and report the application as blocked.
 - Success is a redirect to a path ending in `/thanks` with "Application submitted!".
 - A closed posting returns a 404 page even while the public postings API still lists it.
+
+## Patterns that hold across systems
+
+- **Submit with a checked retry.** Click submit, wait, then run a script that reports one of three states: confirmed, error banner (stop and fix), or form unchanged (click the button once more from the script, wait, and check again). This removes the lost-first-click problem without ever double-submitting.
+- **Yes/No is rendered three ways on Ashby alone:** two buttons, a radio `fieldset`, or a select. If the button helper finds nothing, look for radios inside the question's `fieldset` before assuming the question is missing.
+- **Unknown control types cost a round trip.** When the field list does not say whether a start date is a date picker or free text, or whether salary is a number, read the input's `type` and `placeholder` first and type afterwards.
+- **A salary field of type number, a date picker and an autocomplete all reject pasted prose.** Digits only, `MM/DD/YYYY`, and a typed prefix followed by `Return`.
