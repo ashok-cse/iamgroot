@@ -50,4 +50,6 @@ Die folgenden Dateien sind auf Englisch.
 - Mit welchen KI-Tools es funktioniert: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
 - Was es aus echten Bewerbungen gelernt hat: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
 - Wie es Formulare auf Job-Websites ausfüllt: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- Welche Job-Websites es kennt, Land für Land: [`skills/iamgroot/references/job-portals.md`](../skills/iamgroot/references/job-portals.md)
+- Was in jedem Land anders ist (Arbeitserlaubnis, Gehalt, Lebenslauf und wann man sich bewirbt): [`skills/iamgroot/references/countries.md`](../skills/iamgroot/references/countries.md)
 - Die Befehle: `python3 skills/iamgroot/scripts/iamgroot.py --help`

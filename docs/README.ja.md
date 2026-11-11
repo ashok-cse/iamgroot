@@ -50,4 +50,6 @@
 - 対応している AI ツール: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
 - 実際の応募から学んだこと: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
 - 求人サイトのフォームの入力方法: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- 知っている求人サイト（国別）: [`skills/iamgroot/references/job-portals.md`](../skills/iamgroot/references/job-portals.md)
+- 国ごとの違い（就労許可、給与、履歴書、応募する時期）: [`skills/iamgroot/references/countries.md`](../skills/iamgroot/references/countries.md)
 - コマンド: `python3 skills/iamgroot/scripts/iamgroot.py --help`

@@ -50,4 +50,6 @@ Các tệp dưới đây viết bằng tiếng Anh.
 - Nó dùng được với những công cụ AI nào: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
 - Những gì nó học được từ các đơn ứng tuyển thật: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
 - Cách nó điền đơn trên các trang tuyển dụng: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- Nó biết những trang tuyển dụng nào, theo từng quốc gia: [`skills/iamgroot/references/job-portals.md`](../skills/iamgroot/references/job-portals.md)
+- Mỗi quốc gia có gì khác (giấy phép lao động, lương, CV và khi nào nên ứng tuyển): [`skills/iamgroot/references/countries.md`](../skills/iamgroot/references/countries.md)
 - Các lệnh: `python3 skills/iamgroot/scripts/iamgroot.py --help`

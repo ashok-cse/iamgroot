@@ -52,6 +52,8 @@
 - یہ کن AI ٹولز کے ساتھ کام کرتا ہے: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
 - اصل نوکری کی درخواستوں سے اس نے کیا سیکھا: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
 - یہ نوکری کی ویب سائٹوں پر فارم کیسے بھرتا ہے: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- یہ نوکری کی کن ویب سائٹوں کو جانتا ہے، ملک کے حساب سے: [`skills/iamgroot/references/job-portals.md`](../skills/iamgroot/references/job-portals.md)
+- ہر ملک میں کیا مختلف ہے: ورک پرمٹ، تنخواہ، ریزیومے اور درخواست کب دینی ہے: [`skills/iamgroot/references/countries.md`](../skills/iamgroot/references/countries.md)
 - کمانڈز: `python3 skills/iamgroot/scripts/iamgroot.py --help`
 
 </div>

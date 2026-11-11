@@ -50,4 +50,6 @@ Los archivos siguientes están en inglés.
 - Con qué herramientas de IA funciona: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
 - Lo que ha aprendido de solicitudes de empleo reales: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
 - Cómo rellena los formularios en los sitios de empleo: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- Qué sitios de empleo conoce, país por país: [`skills/iamgroot/references/job-portals.md`](../skills/iamgroot/references/job-portals.md)
+- Qué cambia de un país a otro (permisos de trabajo, sueldo, currículum y cuándo enviar la solicitud): [`skills/iamgroot/references/countries.md`](../skills/iamgroot/references/countries.md)
 - Los comandos: `python3 skills/iamgroot/scripts/iamgroot.py --help`

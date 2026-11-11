@@ -50,4 +50,6 @@
 - 它支持哪些 AI 工具: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
 - 它从真实的求职申请中学到了什么: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
 - 它怎样填写招聘网站上的表格: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- 它知道哪些招聘网站（按国家列出）: [`skills/iamgroot/references/job-portals.md`](../skills/iamgroot/references/job-portals.md)
+- 各个国家有什么不同（工作许可、工资、简历、什么时候申请）: [`skills/iamgroot/references/countries.md`](../skills/iamgroot/references/countries.md)
 - 命令: `python3 skills/iamgroot/scripts/iamgroot.py --help`

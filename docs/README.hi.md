@@ -50,4 +50,6 @@
 - यह किन AI टूल के साथ काम करता है: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
 - असली नौकरी के आवेदनों से इसने क्या सीखा: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
 - यह नौकरी की वेबसाइटों पर फ़ॉर्म कैसे भरता है: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- यह नौकरी की किन वेबसाइटों को जानता है, देश के हिसाब से: [`skills/iamgroot/references/job-portals.md`](../skills/iamgroot/references/job-portals.md)
+- हर देश में क्या अलग है: वर्क परमिट, वेतन, रेज़्यूमे और आवेदन कब करना है: [`skills/iamgroot/references/countries.md`](../skills/iamgroot/references/countries.md)
 - कमांड: `python3 skills/iamgroot/scripts/iamgroot.py --help`

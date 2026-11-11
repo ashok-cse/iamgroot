@@ -52,6 +52,8 @@
 - أدوات الذكاء الاصطناعي التي يعمل معها: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
 - ما تعلّمه من طلبات توظيف حقيقية: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
 - كيف يملأ النماذج في مواقع التوظيف: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- مواقع التوظيف التي يعرفها، بلداً بلداً: [`skills/iamgroot/references/job-portals.md`](../skills/iamgroot/references/job-portals.md)
+- ما الذي يختلف من بلد إلى آخر: تصريح العمل، والراتب، والسيرة الذاتية، ومتى تتقدّم بطلبك: [`skills/iamgroot/references/countries.md`](../skills/iamgroot/references/countries.md)
 - الأوامر: `python3 skills/iamgroot/scripts/iamgroot.py --help`
 
 </div>

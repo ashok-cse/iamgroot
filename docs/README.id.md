@@ -50,4 +50,6 @@ Berkas di bawah ini berbahasa Inggris.
 - Alat AI mana saja yang didukung: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
 - Apa yang dipelajarinya dari lamaran kerja sungguhan: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
 - Cara ia mengisi formulir di situs lowongan: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- Situs lowongan mana saja yang ia kenal, per negara: [`skills/iamgroot/references/job-portals.md`](../skills/iamgroot/references/job-portals.md)
+- Apa yang berbeda di tiap negara (izin kerja, gaji, CV, dan kapan melamar): [`skills/iamgroot/references/countries.md`](../skills/iamgroot/references/countries.md)
 - Perintah: `python3 skills/iamgroot/scripts/iamgroot.py --help`

@@ -50,4 +50,6 @@
 - तो कोणत्या AI टूलसोबत काम करतो: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
 - नोकरीच्या खऱ्या अर्जांमधून तो काय शिकला: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
 - तो नोकरीच्या वेबसाइटवरील फॉर्म कसे भरतो: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- त्याला नोकरीच्या कोणत्या वेबसाइट माहीत आहेत, देशानुसार: [`skills/iamgroot/references/job-portals.md`](../skills/iamgroot/references/job-portals.md)
+- प्रत्येक देशात काय वेगळे आहे: वर्क परमिट, पगार, रेझ्युमे आणि अर्ज कधी करायचा: [`skills/iamgroot/references/countries.md`](../skills/iamgroot/references/countries.md)
 - कमांड: `python3 skills/iamgroot/scripts/iamgroot.py --help`

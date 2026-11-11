@@ -50,4 +50,6 @@
 - С какими ИИ-инструментами он работает: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
 - Чему он научился на настоящих откликах: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
 - Как он заполняет анкеты на сайтах вакансий: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- Какие сайты вакансий он знает, по странам: [`skills/iamgroot/references/job-portals.md`](../skills/iamgroot/references/job-portals.md)
+- Что меняется от страны к стране (разрешение на работу, зарплата, резюме и когда откликаться): [`skills/iamgroot/references/countries.md`](../skills/iamgroot/references/countries.md)
 - Команды: `python3 skills/iamgroot/scripts/iamgroot.py --help`

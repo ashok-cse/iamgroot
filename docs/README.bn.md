@@ -50,4 +50,6 @@
 - এটি কোন কোন AI টুলের সঙ্গে কাজ করে: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
 - আসল চাকরির আবেদন থেকে এটি কী শিখেছে: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
 - এটি চাকরির ওয়েবসাইটে ফর্ম কীভাবে পূরণ করে: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- এটি চাকরির কোন কোন ওয়েবসাইট চেনে, দেশ ধরে ধরে: [`skills/iamgroot/references/job-portals.md`](../skills/iamgroot/references/job-portals.md)
+- দেশে দেশে কী আলাদা: ওয়ার্ক পারমিট, বেতন, রেজুমে এবং কখন আবেদন করতে হয়: [`skills/iamgroot/references/countries.md`](../skills/iamgroot/references/countries.md)
 - কমান্ড: `python3 skills/iamgroot/scripts/iamgroot.py --help`

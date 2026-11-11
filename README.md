@@ -48,6 +48,8 @@ Everything about you is saved in a folder named `profile/` on your own computer.
 | Which AI tools it works with | [`skills/iamgroot/references/agents.md`](skills/iamgroot/references/agents.md) |
 | What it has learned from real job applications | [`skills/iamgroot/references/lessons.md`](skills/iamgroot/references/lessons.md) |
 | How it fills in forms on job websites | [`skills/iamgroot/references/ats-playbook.md`](skills/iamgroot/references/ats-playbook.md) |
+| Which job websites it knows, country by country | [`skills/iamgroot/references/job-portals.md`](skills/iamgroot/references/job-portals.md) |
+| What changes from country to country: work permits, pay, resumes and when to apply | [`skills/iamgroot/references/countries.md`](skills/iamgroot/references/countries.md) |
 | The commands | `python3 skills/iamgroot/scripts/iamgroot.py --help` |
 | How to install from a terminal | `npx skills add ashok-cse/iamgroot` |
 
