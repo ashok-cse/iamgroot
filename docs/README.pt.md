@@ -1,6 +1,6 @@
 # IamGroot
 
-[English](../README.md) · [中文](README.zh.md) · [हिन्दी](README.hi.md) · [Español](README.es.md) · [Français](README.fr.md) · [العربية](README.ar.md) · [বাংলা](README.bn.md) · **Português** · [Русский](README.ru.md) · [اردو](README.ur.md)
+[English](../README.md) · [中文](README.zh.md) · [हिन्दी](README.hi.md) · [Español](README.es.md) · [Français](README.fr.md) · [العربية](README.ar.md) · [বাংলা](README.bn.md) · **Português** · [Русский](README.ru.md) · [اردو](README.ur.md) · [Bahasa Indonesia](README.id.md) · [Deutsch](README.de.md) · [日本語](README.ja.md) · [मराठी](README.mr.md) · [Tiếng Việt](README.vi.md)
 
 **O seu caçador de empregos pessoal.**
 
@@ -10,10 +10,10 @@ Procurar emprego leva muito tempo. O IamGroot faz por você as partes lentas e c
 
 1. **Conhece você.** Lê o seu currículo e faz algumas perguntas, como onde você quer trabalhar e quando pode começar.
 2. **Monta um currículo limpo.** Cria um currículo de uma página que os programas de recrutamento conseguem ler sem erros.
-3. **Encontra vagas.** Olha as páginas de vagas de muitas empresas e guarda as que combinam com você.
-4. **Candidata-se por você.** Preenche os formulários com os seus dados e envia. Se a sua ferramenta de IA não consegue usar um navegador, ele escreve as respostas e você envia.
-5. **Mantém uma lista.** Cada vaga fica em uma lista, para você sempre saber onde se candidatou e o que aconteceu.
-6. **Aprende.** Lembra das suas respostas, então não faz a mesma pergunta duas vezes.
+3. **Encontra vagas.** Olha as páginas de vagas de muitas empresas e guarda as vagas que combinam com você.
+4. **Candidata-se por você.** Preenche os formulários de candidatura com os seus dados e envia. Se a sua ferramenta de IA não consegue usar um navegador, ele escreve as respostas e você envia.
+5. **Mantém uma lista.** Todas as vagas ficam em uma só lista, para você sempre saber onde se candidatou e o que aconteceu.
+6. **Aprende.** Lembra-se das suas respostas, então não faz a mesma pergunta duas vezes.
 
 ## Como começar
 
@@ -31,7 +31,7 @@ Você precisa de uma ferramenta de chat com IA. Para usar todos os recursos, tam
 
 ## As suas informações ficam com você
 
-Tudo sobre você é guardado em uma pasta chamada `profile/` no seu próprio computador. Nada é adicionado a este projeto nem compartilhado.
+Tudo sobre você é guardado em uma pasta chamada `profile/` no seu próprio computador. Essas informações nunca são adicionadas a este projeto e nunca são compartilhadas.
 
 ## O que ele nunca vai fazer
 
@@ -43,8 +43,9 @@ Tudo sobre você é guardado em uma pasta chamada `profile/` no seu próprio com
 
 Os arquivos abaixo estão em inglês.
 
-- [`skills/iamgroot/SKILL.md`](../skills/iamgroot/SKILL.md)
-- [`skills/iamgroot/references/instructions.md`](../skills/iamgroot/references/instructions.md)
-- [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
-- [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
-- [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- Como funciona, passo a passo: [`skills/iamgroot/SKILL.md`](../skills/iamgroot/SKILL.md)
+- Todas as regras que ele segue: [`skills/iamgroot/references/instructions.md`](../skills/iamgroot/references/instructions.md)
+- Com quais ferramentas de IA ele funciona: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
+- O que ele aprendeu com candidaturas reais: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
+- Como ele preenche formulários em sites de vagas: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- Os comandos: `python3 skills/iamgroot/scripts/iamgroot.py --help`

@@ -1,20 +1,20 @@
 # IamGroot
 
-[English](../README.md) · [中文](README.zh.md) · [हिन्दी](README.hi.md) · [Español](README.es.md) · [Français](README.fr.md) · [العربية](README.ar.md) · [বাংলা](README.bn.md) · [Português](README.pt.md) · [Русский](README.ru.md) · **اردو**
+[English](../README.md) · [中文](README.zh.md) · [हिन्दी](README.hi.md) · [Español](README.es.md) · [Français](README.fr.md) · [العربية](README.ar.md) · [বাংলা](README.bn.md) · [Português](README.pt.md) · [Русский](README.ru.md) · **اردو** · [Bahasa Indonesia](README.id.md) · [Deutsch](README.de.md) · [日本語](README.ja.md) · [मराठी](README.mr.md) · [Tiếng Việt](README.vi.md)
 
 <div dir="rtl" lang="ur">
 
-**آپ کا ذاتی جاب ہنٹر۔**
+**نوکری ڈھونڈنے میں آپ کا ذاتی مددگار۔**
 
-نوکری ڈھونڈنے میں بہت وقت لگتا ہے۔ IamGroot اس کے سست اور اکتا دینے والے کام آپ کے لیے کرتا ہے۔ یہ ایک مددگار ہے جو Claude Code، Codex، ChatGPT، Gemini اور Cursor جیسے AI چیٹ ٹولز کے اندر کام کرتا ہے۔ یہ ہر قسم کی نوکری اور ہر ملک کے لیے کام کرتا ہے۔
+نوکری ڈھونڈنے میں بہت وقت لگتا ہے۔ IamGroot اس کے لمبے اور اکتا دینے والے کام آپ کے لیے کرتا ہے۔ یہ ایک مددگار ہے جو Claude Code، Codex، ChatGPT، Gemini اور Cursor جیسے AI چیٹ ٹولز کے اندر کام کرتا ہے۔ یہ ہر قسم کی نوکری اور ہر ملک کے لیے کام کرتا ہے۔
 
 ## یہ کیا کرتا ہے
 
-1. **آپ کو جانتا ہے۔** یہ آپ کا ریزیومے پڑھتا ہے اور چند سوال پوچھتا ہے، جیسے آپ کہاں کام کرنا چاہتے ہیں اور کب سے شروع کر سکتے ہیں۔
+1. **آپ سے جان پہچان کرتا ہے۔** یہ آپ کا ریزیومے پڑھتا ہے اور چند سوال پوچھتا ہے، جیسے آپ کہاں کام کرنا چاہتے ہیں اور کب سے شروع کر سکتے ہیں۔
 2. **صاف ریزیومے بناتا ہے۔** یہ ایک صفحے کا ریزیومے بناتا ہے جسے بھرتی کا سافٹ ویئر بغیر غلطی کے پڑھ سکتا ہے۔
-3. **نوکریاں ڈھونڈتا ہے۔** یہ بہت سی کمپنیوں کے جاب پیج دیکھتا ہے اور وہ نوکریاں رکھ لیتا ہے جو آپ کے لیے موزوں ہیں۔
+3. **نوکریاں ڈھونڈتا ہے۔** یہ بہت سی کمپنیوں کے نوکریوں والے صفحے دیکھتا ہے اور وہ نوکریاں رکھ لیتا ہے جو آپ کے لیے مناسب ہیں۔
 4. **آپ کی طرف سے درخواست دیتا ہے۔** یہ درخواست کے فارم میں آپ کی معلومات بھرتا ہے اور بھیج دیتا ہے۔ اگر آپ کا AI ٹول ویب براؤزر استعمال نہیں کر سکتا تو یہ جواب لکھ دیتا ہے اور آپ خود بھیجتے ہیں۔
-5. **فہرست رکھتا ہے۔** ہر نوکری ایک فہرست میں درج ہوتی ہے، تاکہ آپ کو ہمیشہ معلوم رہے کہ آپ نے کہاں درخواست دی اور کیا ہوا۔
+5. **فہرست رکھتا ہے۔** ہر نوکری ایک ہی فہرست میں درج ہوتی ہے، تاکہ آپ کو ہمیشہ معلوم رہے کہ آپ نے کہاں درخواست دی اور کیا ہوا۔
 6. **سیکھتا ہے۔** یہ آپ کے جواب یاد رکھتا ہے، اس لیے ایک ہی سوال دوبارہ نہیں پوچھتا۔
 
 ## شروع کیسے کریں
@@ -35,20 +35,21 @@
 
 آپ کے بارے میں سب کچھ آپ کے اپنے کمپیوٹر پر `profile/` نام کے فولڈر میں محفوظ ہوتا ہے۔ یہ کبھی اس پروجیکٹ میں شامل نہیں کیا جاتا اور کسی کے ساتھ شیئر نہیں ہوتا۔
 
-## یہ کبھی کیا نہیں کرے گا
+## جو کام یہ کبھی نہیں کرے گا
 
 - مہارتیں، نوکریاں یا جواب اپنی طرف سے نہیں گھڑے گا۔ جس سوال کا جواب صرف آپ جانتے ہیں، وہ آپ سے پوچھے گا۔
 - اکاؤنٹ نہیں بنائے گا، پاس ورڈ نہیں لکھے گا، اور ”میں روبوٹ نہیں ہوں“ والی جانچ کو پار نہیں کرے گا۔
-- صرف گنتی بڑھانے کے لیے ایسی نوکریوں پر درخواست نہیں دے گا جو آپ کے لیے موزوں نہیں۔
+- صرف گنتی بڑھانے کے لیے ایسی نوکریوں پر درخواست نہیں دے گا جو آپ کے لیے مناسب نہیں۔
 
 ## مزید تفصیل
 
 نیچے دی گئی فائلیں انگریزی میں ہیں۔
 
-- [`skills/iamgroot/SKILL.md`](../skills/iamgroot/SKILL.md)
-- [`skills/iamgroot/references/instructions.md`](../skills/iamgroot/references/instructions.md)
-- [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
-- [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
-- [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- یہ قدم بہ قدم کیسے کام کرتا ہے: [`skills/iamgroot/SKILL.md`](../skills/iamgroot/SKILL.md)
+- وہ تمام اصول جن پر یہ چلتا ہے: [`skills/iamgroot/references/instructions.md`](../skills/iamgroot/references/instructions.md)
+- یہ کن AI ٹولز کے ساتھ کام کرتا ہے: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
+- اصل نوکری کی درخواستوں سے اس نے کیا سیکھا: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
+- یہ نوکری کی ویب سائٹوں پر فارم کیسے بھرتا ہے: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- کمانڈز: `python3 skills/iamgroot/scripts/iamgroot.py --help`
 
 </div>

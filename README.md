@@ -1,6 +1,6 @@
 # IamGroot
 
-**English** · [中文](docs/README.zh.md) · [हिन्दी](docs/README.hi.md) · [Español](docs/README.es.md) · [Français](docs/README.fr.md) · [العربية](docs/README.ar.md) · [বাংলা](docs/README.bn.md) · [Português](docs/README.pt.md) · [Русский](docs/README.ru.md) · [اردو](docs/README.ur.md)
+**English** · [中文](docs/README.zh.md) · [हिन्दी](docs/README.hi.md) · [Español](docs/README.es.md) · [Français](docs/README.fr.md) · [العربية](docs/README.ar.md) · [বাংলা](docs/README.bn.md) · [Português](docs/README.pt.md) · [Русский](docs/README.ru.md) · [اردو](docs/README.ur.md) · [Bahasa Indonesia](docs/README.id.md) · [Deutsch](docs/README.de.md) · [日本語](docs/README.ja.md) · [मराठी](docs/README.mr.md) · [Tiếng Việt](docs/README.vi.md)
 
 **Your personal job hunter.**
 

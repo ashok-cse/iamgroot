@@ -1,15 +1,15 @@
 # IamGroot
 
-[English](../README.md) · [中文](README.zh.md) · [हिन्दी](README.hi.md) · [Español](README.es.md) · [Français](README.fr.md) · [العربية](README.ar.md) · **বাংলা** · [Português](README.pt.md) · [Русский](README.ru.md) · [اردو](README.ur.md)
+[English](../README.md) · [中文](README.zh.md) · [हिन्दी](README.hi.md) · [Español](README.es.md) · [Français](README.fr.md) · [العربية](README.ar.md) · **বাংলা** · [Português](README.pt.md) · [Русский](README.ru.md) · [اردو](README.ur.md) · [Bahasa Indonesia](README.id.md) · [Deutsch](README.de.md) · [日本語](README.ja.md) · [मराठी](README.mr.md) · [Tiếng Việt](README.vi.md)
 
 **আপনার ব্যক্তিগত চাকরি খোঁজার সহায়ক।**
 
-চাকরি খুঁজতে অনেক সময় লাগে। IamGroot এর ধীর ও একঘেয়ে কাজগুলো আপনার হয়ে করে দেয়। এটি একটি সহায়ক, যা Claude Code, Codex, ChatGPT, Gemini ও Cursor-এর মতো AI চ্যাট টুলের ভেতরে কাজ করে। এটি যেকোনো ধরনের চাকরি এবং যেকোনো দেশের জন্য কাজ করে।
+চাকরি খুঁজতে অনেক সময় লাগে। IamGroot চাকরি খোঁজার ধীর ও একঘেয়ে কাজগুলো আপনার হয়ে করে দেয়। এটি একটি সহায়ক, যা Claude Code, Codex, ChatGPT, Gemini ও Cursor-এর মতো AI চ্যাট টুলের ভেতরে কাজ করে। এটি যেকোনো ধরনের চাকরি এবং যেকোনো দেশের জন্য কাজ করে।
 
 ## এটি কী করে
 
-1. **আপনাকে জানে।** এটি আপনার রেজ়ুমে পড়ে এবং কয়েকটি প্রশ্ন করে, যেমন আপনি কোথায় কাজ করতে চান এবং কবে থেকে শুরু করতে পারবেন।
-2. **পরিষ্কার রেজ়ুমে তৈরি করে।** এটি এক পাতার একটি রেজ়ুমে বানায়, যা নিয়োগের সফটওয়্যার ভুল ছাড়া পড়তে পারে।
+1. **আপনার সম্পর্কে জেনে নেয়।** এটি আপনার রেজুমে পড়ে এবং কয়েকটি প্রশ্ন করে, যেমন আপনি কোথায় কাজ করতে চান এবং কবে থেকে শুরু করতে পারবেন।
+2. **পরিষ্কার রেজুমে তৈরি করে।** এটি এক পাতার একটি রেজুমে বানায়, যা নিয়োগের সফটওয়্যার ভুল ছাড়া পড়তে পারে।
 3. **চাকরি খোঁজে।** এটি অনেক কোম্পানির চাকরির পাতা দেখে এবং আপনার জন্য মানানসই চাকরিগুলো রেখে দেয়।
 4. **আপনার হয়ে আবেদন করে।** এটি আবেদন ফর্মে আপনার তথ্য পূরণ করে পাঠিয়ে দেয়। আপনার AI টুল যদি ওয়েব ব্রাউজার ব্যবহার করতে না পারে, তবে এটি উত্তরগুলো লিখে দেয় এবং আপনি নিজে পাঠান।
 5. **তালিকা রাখে।** প্রতিটি চাকরি একটি তালিকায় লেখা থাকে, তাই আপনি সব সময় জানেন কোথায় আবেদন করেছেন এবং কী হয়েছে।
@@ -26,7 +26,7 @@
    ```
 
 2. আপনার AI টুলকে বলুন: **"You are IamGroot. Onboard me."** (অর্থ: তুমি IamGroot, আমার সম্পর্কে জানা শুরু করো।)
-3. তাকে আপনার রেজ়ুমে দিন এবং তার প্রশ্নের উত্তর দিন।
+3. তাকে আপনার রেজুমে দিন এবং তার প্রশ্নের উত্তর দিন।
 4. তাকে চাকরি খুঁজতে ও আবেদন করতে বলুন।
 
 ## আপনার তথ্য আপনার কাছেই থাকে
@@ -43,8 +43,9 @@
 
 নিচের ফাইলগুলো ইংরেজিতে লেখা।
 
-- [`skills/iamgroot/SKILL.md`](../skills/iamgroot/SKILL.md)
-- [`skills/iamgroot/references/instructions.md`](../skills/iamgroot/references/instructions.md)
-- [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
-- [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
-- [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- এটি ধাপে ধাপে কীভাবে কাজ করে: [`skills/iamgroot/SKILL.md`](../skills/iamgroot/SKILL.md)
+- এটি যে সব নিয়ম মেনে চলে: [`skills/iamgroot/references/instructions.md`](../skills/iamgroot/references/instructions.md)
+- এটি কোন কোন AI টুলের সঙ্গে কাজ করে: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
+- আসল চাকরির আবেদন থেকে এটি কী শিখেছে: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
+- এটি চাকরির ওয়েবসাইটে ফর্ম কীভাবে পূরণ করে: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- কমান্ড: `python3 skills/iamgroot/scripts/iamgroot.py --help`

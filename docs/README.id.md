@@ -1,0 +1,51 @@
+# IamGroot
+
+[English](../README.md) · [中文](README.zh.md) · [हिन्दी](README.hi.md) · [Español](README.es.md) · [Français](README.fr.md) · [العربية](README.ar.md) · [বাংলা](README.bn.md) · [Português](README.pt.md) · [Русский](README.ru.md) · [اردو](README.ur.md) · **Bahasa Indonesia** · [Deutsch](README.de.md) · [日本語](README.ja.md) · [मराठी](README.mr.md) · [Tiếng Việt](README.vi.md)
+
+**Pencari kerja pribadi Anda.**
+
+Mencari pekerjaan memakan banyak waktu. IamGroot mengerjakan bagian yang lambat dan membosankan untuk Anda. IamGroot adalah pembantu yang bekerja di dalam alat obrolan AI seperti Claude Code, Codex, ChatGPT, Gemini, dan Cursor. Bisa dipakai untuk pekerjaan apa pun, di negara mana pun.
+
+## Apa yang dilakukannya
+
+1. **Mengenal Anda.** Ia membaca CV Anda dan menanyakan beberapa hal, misalnya di mana Anda ingin bekerja dan kapan Anda bisa mulai.
+2. **Membuat CV yang rapi.** Ia membuat CV satu halaman yang bisa dibaca perangkat lunak perekrutan tanpa salah.
+3. **Mencari lowongan.** Ia memeriksa halaman lowongan banyak perusahaan dan menyimpan lowongan yang cocok untuk Anda.
+4. **Melamar untuk Anda.** Ia mengisi formulir lamaran dengan data Anda lalu mengirimkannya. Jika alat AI Anda tidak bisa memakai peramban web, ia menuliskan jawabannya dan Anda yang mengirim.
+5. **Menyimpan daftar.** Setiap lowongan masuk ke satu daftar, jadi Anda selalu tahu di mana Anda melamar dan apa hasilnya.
+6. **Belajar.** Ia mengingat jawaban Anda, jadi tidak menanyakan hal yang sama dua kali.
+
+## Cara memulai
+
+Anda perlu sebuah alat obrolan AI. Untuk memakai semua fitur, Anda juga perlu Python, program gratis, di komputer Anda.
+
+1. Dapatkan IamGroot. Jalankan perintah ini, atau unduh proyek ini dan buka di alat AI Anda:
+
+   ```bash
+   npx skills add ashok-cse/iamgroot
+   ```
+
+2. Katakan kepada alat AI Anda: **"You are IamGroot. Onboard me."** (artinya: kamu adalah IamGroot, mulailah mengenal saya.)
+3. Berikan CV Anda dan jawab pertanyaannya.
+4. Minta ia mencari lowongan dan melamar.
+
+## Informasi Anda tetap bersama Anda
+
+Semua hal tentang Anda disimpan di folder bernama `profile/` di komputer Anda sendiri. Tidak pernah ditambahkan ke proyek ini dan tidak pernah dibagikan.
+
+## Yang tidak akan pernah dilakukannya
+
+- Mengarang keahlian, pekerjaan, atau jawaban. Jika hanya Anda yang tahu jawabannya, ia akan bertanya kepada Anda.
+- Membuat akun, mengetik kata sandi, atau melewati pemeriksaan “Saya bukan robot”.
+- Melamar pekerjaan yang tidak cocok untuk Anda hanya supaya jumlahnya lebih banyak.
+
+## Info lebih lanjut
+
+Berkas di bawah ini berbahasa Inggris.
+
+- Cara kerjanya langkah demi langkah: [`skills/iamgroot/SKILL.md`](../skills/iamgroot/SKILL.md)
+- Semua aturan yang diikutinya: [`skills/iamgroot/references/instructions.md`](../skills/iamgroot/references/instructions.md)
+- Alat AI mana saja yang didukung: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
+- Apa yang dipelajarinya dari lamaran kerja sungguhan: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
+- Cara ia mengisi formulir di situs lowongan: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- Perintah: `python3 skills/iamgroot/scripts/iamgroot.py --help`

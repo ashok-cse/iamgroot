@@ -1,18 +1,18 @@
 # IamGroot
 
-[English](../README.md) · [中文](README.zh.md) · **हिन्दी** · [Español](README.es.md) · [Français](README.fr.md) · [العربية](README.ar.md) · [বাংলা](README.bn.md) · [Português](README.pt.md) · [Русский](README.ru.md) · [اردو](README.ur.md)
+[English](../README.md) · [中文](README.zh.md) · **हिन्दी** · [Español](README.es.md) · [Français](README.fr.md) · [العربية](README.ar.md) · [বাংলা](README.bn.md) · [Português](README.pt.md) · [Русский](README.ru.md) · [اردو](README.ur.md) · [Bahasa Indonesia](README.id.md) · [Deutsch](README.de.md) · [日本語](README.ja.md) · [मराठी](README.mr.md) · [Tiếng Việt](README.vi.md)
 
-**आपका निजी जॉब हंटर।**
+**नौकरी ढूँढने वाला आपका निजी सहायक।**
 
 नौकरी ढूँढने में बहुत समय लगता है। IamGroot इसके धीमे और उबाऊ काम आपके लिए करता है। यह एक सहायक है जो Claude Code, Codex, ChatGPT, Gemini और Cursor जैसे AI चैट टूल के अंदर काम करता है। यह किसी भी तरह की नौकरी और किसी भी देश के लिए काम करता है।
 
 ## यह क्या करता है
 
-1. **आपको जानता है।** यह आपका रेज़्यूमे पढ़ता है और कुछ सवाल पूछता है, जैसे आप कहाँ काम करना चाहते हैं और कब से शुरू कर सकते हैं।
+1. **आपके बारे में जानता है।** यह आपका रेज़्यूमे पढ़ता है और कुछ सवाल पूछता है, जैसे आप कहाँ काम करना चाहते हैं और कब से शुरू कर सकते हैं।
 2. **साफ़ रेज़्यूमे बनाता है।** यह एक पेज का रेज़्यूमे बनाता है जिसे भर्ती वाला सॉफ़्टवेयर बिना गलती के पढ़ सकता है।
-3. **नौकरियाँ ढूँढता है।** यह कई कंपनियों के जॉब पेज देखता है और जो नौकरियाँ आपके लिए सही हैं उन्हें चुनता है।
+3. **नौकरियाँ ढूँढता है।** यह कई कंपनियों के नौकरी वाले पेज देखता है और जो नौकरियाँ आपके लिए सही हैं, उन्हें चुनता है।
 4. **आपकी ओर से आवेदन करता है।** यह आवेदन फ़ॉर्म में आपकी जानकारी भरता है और भेज देता है। अगर आपका AI टूल वेब ब्राउज़र नहीं चला सकता, तो यह जवाब लिख देता है और आप खुद भेजते हैं।
-5. **सूची रखता है।** हर नौकरी एक सूची में दर्ज होती है, ताकि आपको हमेशा पता रहे कि आपने कहाँ आवेदन किया और क्या हुआ।
+5. **सूची रखता है।** हर नौकरी एक ही सूची में दर्ज होती है, ताकि आपको हमेशा पता रहे कि आपने कहाँ आवेदन किया और क्या हुआ।
 6. **सीखता है।** यह आपके जवाब याद रखता है, इसलिए एक ही सवाल दोबारा नहीं पूछता।
 
 ## शुरू कैसे करें
@@ -43,8 +43,9 @@
 
 नीचे दी गई फ़ाइलें अंग्रेज़ी में हैं।
 
-- [`skills/iamgroot/SKILL.md`](../skills/iamgroot/SKILL.md)
-- [`skills/iamgroot/references/instructions.md`](../skills/iamgroot/references/instructions.md)
-- [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
-- [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
-- [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- यह कदम-दर-कदम कैसे काम करता है: [`skills/iamgroot/SKILL.md`](../skills/iamgroot/SKILL.md)
+- वे सारे नियम जिनका यह पालन करता है: [`skills/iamgroot/references/instructions.md`](../skills/iamgroot/references/instructions.md)
+- यह किन AI टूल के साथ काम करता है: [`skills/iamgroot/references/agents.md`](../skills/iamgroot/references/agents.md)
+- असली नौकरी के आवेदनों से इसने क्या सीखा: [`skills/iamgroot/references/lessons.md`](../skills/iamgroot/references/lessons.md)
+- यह नौकरी की वेबसाइटों पर फ़ॉर्म कैसे भरता है: [`skills/iamgroot/references/ats-playbook.md`](../skills/iamgroot/references/ats-playbook.md)
+- कमांड: `python3 skills/iamgroot/scripts/iamgroot.py --help`
