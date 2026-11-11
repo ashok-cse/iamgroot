@@ -22,8 +22,12 @@ Public, unauthenticated JSON endpoints (send no candidate data):
 | Greenhouse | `https://boards-api.greenhouse.io/v1/boards/{board}/jobs?content=true` | `https://boards-api.greenhouse.io/v1/boards/{board}/jobs/{id}?questions=true` |
 | Lever | `https://api.lever.co/v0/postings/{board}?mode=json` (EU: `api.eu.lever.co`) | not exposed |
 | Ashby | `https://api.ashbyhq.com/posting-api/job-board/{board}?includeCompensation=true` | not exposed; read the page |
+| SmartRecruiters | `https://api.smartrecruiters.com/v1/companies/{company}/postings?limit=100&offset=0` (details: `.../postings/{id}`) | not exposed |
+| Personio | `https://{company}.jobs.personio.de/xml?language=en` (also `.com`) | not exposed |
+| Recruitee | `https://{company}.recruitee.com/api/offers/` | not exposed |
+| Workable | `POST https://apply.workable.com/api/v3/accounts/{company}/jobs` (details: `/api/v2/accounts/{company}/jobs/{shortcode}`) | not exposed |
 
-`iamgroot.py discover` scans all three; `iamgroot.py questions {board} {id}` prints a Greenhouse form with its select options.
+`iamgroot.py discover` scans all seven (company names are case-sensitive on SmartRecruiters, for example `DeliveryHero`); `iamgroot.py questions {board} {id}` prints a Greenhouse form with its select options.
 
 ## Ashby (`jobs.ashbyhq.com/{board}/{job-id}/application`)
 

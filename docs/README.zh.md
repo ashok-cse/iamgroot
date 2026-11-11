@@ -17,15 +17,17 @@
 
 ## 如何开始
 
-你需要一个 AI 聊天工具。要使用全部功能，电脑上还需要安装 Python（一个免费的程序）。
+你只需要一个 AI 聊天工具。
 
-1. 获取 IamGroot。运行下面的命令，或者下载本项目并在你的 AI 工具中打开：
+1. 打开你的 AI 聊天工具。
+2. 复制下面这句话并发送：
 
-   ```bash
-   npx skills add ashok-cse/iamgroot
+   ```text
+   Set up IamGroot from https://github.com/ashok-cse/iamgroot and onboard me.
    ```
 
-2. 对你的 AI 工具说：**"You are IamGroot. Onboard me."**（意思是：你是 IamGroot，请开始了解我。）
+   （意思是：请从这个网址安装 IamGroot，然后开始了解我。）
+
 3. 把简历交给它，并回答它的问题。
 4. 让它帮你找工作并申请。
 

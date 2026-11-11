@@ -4,30 +4,32 @@
 
 **Pencari kerja pribadi Anda.**
 
-Mencari pekerjaan memakan banyak waktu. IamGroot mengerjakan bagian yang lambat dan membosankan untuk Anda. IamGroot adalah pembantu yang bekerja di dalam alat obrolan AI seperti Claude Code, Codex, ChatGPT, Gemini, dan Cursor. Bisa dipakai untuk pekerjaan apa pun, di negara mana pun.
+Mencari pekerjaan memakan banyak waktu. IamGroot mengerjakan bagian yang lambat dan membosankan untuk Anda. IamGroot adalah asisten yang bekerja di dalam alat obrolan AI seperti Claude Code, Codex, ChatGPT, Gemini, dan Cursor. Bisa dipakai untuk pekerjaan apa pun, di negara mana pun.
 
 ## Apa yang dilakukannya
 
 1. **Mengenal Anda.** Ia membaca CV Anda dan menanyakan beberapa hal, misalnya di mana Anda ingin bekerja dan kapan Anda bisa mulai.
 2. **Membuat CV yang rapi.** Ia membuat CV satu halaman yang bisa dibaca perangkat lunak perekrutan tanpa salah.
 3. **Mencari lowongan.** Ia memeriksa halaman lowongan banyak perusahaan dan menyimpan lowongan yang cocok untuk Anda.
-4. **Melamar untuk Anda.** Ia mengisi formulir lamaran dengan data Anda lalu mengirimkannya. Jika alat AI Anda tidak bisa memakai peramban web, ia menuliskan jawabannya dan Anda yang mengirim.
+4. **Melamar untuk Anda.** Ia mengisi formulir lamaran dengan data Anda lalu mengirimkannya. Jika alat AI Anda tidak bisa memakai browser, ia menuliskan jawabannya dan Anda yang mengirim.
 5. **Menyimpan daftar.** Setiap lowongan masuk ke satu daftar, jadi Anda selalu tahu di mana Anda melamar dan apa hasilnya.
 6. **Belajar.** Ia mengingat jawaban Anda, jadi tidak menanyakan hal yang sama dua kali.
 
 ## Cara memulai
 
-Anda perlu sebuah alat obrolan AI. Untuk memakai semua fitur, Anda juga perlu Python, program gratis, di komputer Anda.
+Anda hanya perlu sebuah alat obrolan AI.
 
-1. Dapatkan IamGroot. Jalankan perintah ini, atau unduh proyek ini dan buka di alat AI Anda:
+1. Buka alat obrolan AI Anda.
+2. Salin pesan ini lalu kirim:
 
-   ```bash
-   npx skills add ashok-cse/iamgroot
+   ```text
+   Set up IamGroot from https://github.com/ashok-cse/iamgroot and onboard me.
    ```
 
-2. Katakan kepada alat AI Anda: **"You are IamGroot. Onboard me."** (artinya: kamu adalah IamGroot, mulailah mengenal saya.)
+   (Artinya: pasang IamGroot dari alamat itu dan mulailah mengenal saya).
+
 3. Berikan CV Anda dan jawab pertanyaannya.
-4. Minta ia mencari lowongan dan melamar.
+4. Minta IamGroot mencari lowongan dan melamar.
 
 ## Informasi Anda tetap bersama Anda
 
@@ -37,7 +39,7 @@ Semua hal tentang Anda disimpan di folder bernama `profile/` di komputer Anda se
 
 - Mengarang keahlian, pekerjaan, atau jawaban. Jika hanya Anda yang tahu jawabannya, ia akan bertanya kepada Anda.
 - Membuat akun, mengetik kata sandi, atau melewati pemeriksaan “Saya bukan robot”.
-- Melamar pekerjaan yang tidak cocok untuk Anda hanya supaya jumlahnya lebih banyak.
+- Melamar lowongan yang tidak cocok untuk Anda hanya supaya jumlahnya lebih banyak.
 
 ## Info lebih lanjut
 

@@ -17,15 +17,17 @@ Tìm việc tốn rất nhiều thời gian. IamGroot làm giúp bạn những p
 
 ## Cách bắt đầu
 
-Bạn cần một công cụ trò chuyện AI. Để dùng mọi tính năng, máy tính của bạn cũng cần có Python, một chương trình miễn phí.
+Bạn chỉ cần một công cụ trò chuyện AI.
 
-1. Tải IamGroot. Chạy lệnh này, hoặc tải dự án này về và mở trong công cụ AI của bạn:
+1. Mở công cụ trò chuyện AI của bạn.
+2. Sao chép tin nhắn này rồi gửi đi:
 
-   ```bash
-   npx skills add ashok-cse/iamgroot
+   ```text
+   Set up IamGroot from https://github.com/ashok-cse/iamgroot and onboard me.
    ```
 
-2. Nói với công cụ AI của bạn: **"You are IamGroot. Onboard me."** (nghĩa là: bạn là IamGroot, hãy bắt đầu tìm hiểu về tôi.)
+   (Nghĩa là: hãy cài IamGroot từ địa chỉ này và bắt đầu tìm hiểu về tôi.)
+
 3. Đưa CV cho nó và trả lời các câu hỏi.
 4. Yêu cầu nó tìm việc và ứng tuyển.
 
@@ -37,7 +39,7 @@ Mọi thông tin về bạn được lưu trong một thư mục tên là `profi
 
 - Bịa ra kỹ năng, công việc hay câu trả lời. Khi chỉ bạn biết câu trả lời, nó sẽ hỏi bạn.
 - Tạo tài khoản, nhập mật khẩu, hay vượt qua bước kiểm tra “Tôi không phải là người máy”.
-- Ứng tuyển vào việc không phù hợp với bạn chỉ để có con số lớn hơn.
+- Ứng tuyển vào những việc không phù hợp với bạn chỉ để tăng số lượng.
 
 ## Thông tin thêm
 

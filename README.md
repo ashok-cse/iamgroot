@@ -17,15 +17,15 @@ Looking for a job takes a lot of time. IamGroot does the slow, boring parts for 
 
 ## How to start
 
-You need an AI chat tool. To use every feature you also need Python, a free program, on your computer.
+You only need an AI chat tool, such as Claude Code, Codex, ChatGPT, Gemini or Cursor.
 
-1. Get IamGroot. Run this command, or download this project and open it in your AI tool:
+1. Open your AI chat tool.
+2. Copy this message and send it:
 
-   ```bash
-   npx skills add ashok-cse/iamgroot
+   ```text
+   Set up IamGroot from https://github.com/ashok-cse/iamgroot and onboard me.
    ```
 
-2. Tell your AI tool: **"You are IamGroot. Onboard me."**
 3. Give it your resume and answer its questions.
 4. Ask it to find jobs and apply.
 
@@ -49,3 +49,15 @@ Everything about you is saved in a folder named `profile/` on your own computer.
 | What it has learned from real job applications | [`skills/iamgroot/references/lessons.md`](skills/iamgroot/references/lessons.md) |
 | How it fills in forms on job websites | [`skills/iamgroot/references/ats-playbook.md`](skills/iamgroot/references/ats-playbook.md) |
 | The commands | `python3 skills/iamgroot/scripts/iamgroot.py --help` |
+| How to install from a terminal | `npx skills add ashok-cse/iamgroot` |
+
+## Note for AI assistants
+
+If a user asks you to set up IamGroot:
+
+1. Get this repository: clone it, or run `npx skills add ashok-cse/iamgroot`.
+2. Read `skills/iamgroot/SKILL.md`.
+3. Run `python3 skills/iamgroot/scripts/iamgroot.py init` in the user's working folder.
+4. Start the onboarding in section 1 of `skills/iamgroot/references/instructions.md`.
+
+If you cannot run commands, read `SKILL.md` and the files in `skills/iamgroot/references/` from this repository and work in chat mode: you ask, check and write, and the user sends the applications.

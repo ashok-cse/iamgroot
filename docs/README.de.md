@@ -4,30 +4,32 @@
 
 **Dein persönlicher Jobsucher.**
 
-Die Jobsuche kostet viel Zeit. IamGroot nimmt dir die langsamen, langweiligen Teile ab. Es ist ein Helfer, der in KI-Chat-Tools wie Claude Code, Codex, ChatGPT, Gemini und Cursor arbeitet. Es funktioniert für jede Art von Job, in jedem Land.
+Die Jobsuche kostet viel Zeit. IamGroot nimmt dir die mühsamen, langweiligen Teile ab. Es ist ein Helfer, der in KI-Chat-Tools wie Claude Code, Codex, ChatGPT, Gemini und Cursor arbeitet. Es funktioniert für jede Art von Job, in jedem Land.
 
 ## Was es macht
 
 1. **Lernt dich kennen.** Es liest deinen Lebenslauf und stellt dir ein paar Fragen, zum Beispiel wo du arbeiten möchtest und wann du anfangen kannst.
-2. **Erstellt einen sauberen Lebenslauf.** Es baut einen einseitigen Lebenslauf, den Bewerbungssoftware ohne Fehler lesen kann.
-3. **Findet Jobs.** Es durchsucht die Stellenseiten vieler Firmen und behält die Jobs, die zu dir passen.
+2. **Erstellt einen sauberen Lebenslauf.** Es schreibt einen einseitigen Lebenslauf, den Bewerbungssoftware ohne Fehler lesen kann.
+3. **Findet Jobs.** Es durchsucht die Jobseiten vieler Firmen und behält die Jobs, die zu dir passen.
 4. **Bewirbt sich für dich.** Es füllt die Bewerbungsformulare mit deinen Daten aus und schickt sie ab. Wenn dein KI-Tool keinen Browser bedienen kann, schreibt es die Antworten und du schickst sie selbst ab.
 5. **Führt eine Liste.** Jeder Job kommt in eine einzige Liste. So weißt du immer, wo du dich beworben hast und was daraus geworden ist.
 6. **Lernt dazu.** Es merkt sich deine Antworten und stellt dieselbe Frage nicht zweimal.
 
 ## So fängst du an
 
-Du brauchst ein KI-Chat-Tool. Für alle Funktionen brauchst du außerdem Python, ein kostenloses Programm, auf deinem Computer.
+Du brauchst nur ein KI-Chat-Tool.
 
-1. Hol dir IamGroot. Führe diesen Befehl aus oder lade dieses Projekt herunter und öffne es in deinem KI-Tool:
+1. Öffne dein KI-Chat-Tool.
+2. Kopiere diese Nachricht und schicke sie ab:
 
-   ```bash
-   npx skills add ashok-cse/iamgroot
+   ```text
+   Set up IamGroot from https://github.com/ashok-cse/iamgroot and onboard me.
    ```
 
-2. Sag deinem KI-Tool: **"You are IamGroot. Onboard me."** (Das heißt: Du bist IamGroot, lerne mich kennen.)
+   (Das heißt: Richte IamGroot von dieser Adresse ein und lerne mich kennen.)
+
 3. Gib ihm deinen Lebenslauf und beantworte seine Fragen.
-4. Bitte es, Jobs zu finden und sich zu bewerben.
+4. Bitte es, Jobs zu finden und sich für dich zu bewerben.
 
 ## Deine Daten bleiben bei dir
 

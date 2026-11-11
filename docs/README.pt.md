@@ -17,15 +17,17 @@ Procurar emprego leva muito tempo. O IamGroot faz por você as partes lentas e c
 
 ## Como começar
 
-Você precisa de uma ferramenta de chat com IA. Para usar todos os recursos, também precisa do Python, um programa gratuito, no seu computador.
+Você só precisa de uma ferramenta de chat com IA.
 
-1. Obtenha o IamGroot. Rode este comando, ou baixe este projeto e abra na sua ferramenta de IA:
+1. Abra a sua ferramenta de chat com IA.
+2. Copie esta mensagem e envie:
 
-   ```bash
-   npx skills add ashok-cse/iamgroot
+   ```text
+   Set up IamGroot from https://github.com/ashok-cse/iamgroot and onboard me.
    ```
 
-2. Diga à sua ferramenta de IA: **"You are IamGroot. Onboard me."** (quer dizer: você é o IamGroot, comece a me conhecer).
+   (Quer dizer: instale o IamGroot a partir desse endereço e comece a me conhecer.)
+
 3. Entregue o seu currículo e responda às perguntas.
 4. Peça para ele encontrar vagas e se candidatar.
 

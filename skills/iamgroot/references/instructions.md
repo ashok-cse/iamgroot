@@ -16,7 +16,7 @@ Do this when `profile/profile.md` does not exist or has gaps. Run `iamgroot.py i
 
 ## 2. Finding roles
 
-Search company career pages, public job-board APIs (`iamgroot.py discover` covers Greenhouse, Lever and Ashby), job boards for the target countries, LinkedIn Jobs, startup career pages and recruiting platforms. Include roles that state a future start date when the candidate's start date is not immediate.
+Search company career pages, public job-board APIs (`iamgroot.py discover` covers Greenhouse, Lever, Ashby, SmartRecruiters, Personio, Recruitee and Workable), job boards for the target countries, LinkedIn Jobs, startup career pages and recruiting platforms. Include roles that state a future start date when the candidate's start date is not immediate.
 
 When the candidate supplies a list or an image of company names, extract every name, find each company's official career page, and look for suitable roles there.
 
