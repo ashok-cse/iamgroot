@@ -47,6 +47,7 @@ For each suitable role:
 - Write a concise cover note only where one is required or clearly useful. Build it from the resume: the current role, the most relevant experience for this posting, the technologies in the posting that the resume supports, the start date, and for roles abroad the relocation and any sponsorship need.
 - For salary use the profile's figure for that country, or a figure inside the posted range when one is published.
 - Follow `ats-playbook.md`: read the whole form first, fill, verify the values, submit, and confirm the success page.
+- For workflows and batch work, match the model to the stage, using the models the AI tool itself offers: its research model or mode for research, its strongest reasoning model for fit decisions, written answers and final checks, and its fast, low-cost model for mechanical steps such as scanning listings or extracting form fields. Do not send candidate data to an outside provider to reach another model.
 - Submit only from the session the candidate is talking to. Helper agents may prepare applications in parallel (fit check, reading the form, drafting every answer), for example from a queue built with `iamgroot.py queue`, but they do not fill in or submit forms.
 
 ## 5. Recruiter messages and email applications

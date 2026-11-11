@@ -13,6 +13,9 @@ const skill = cfg.skillDir || `${root}/skills/iamgroot`
 const queueFile = cfg.queueFile || 'profile/jobs/queue.json'
 const batches = cfg.batches || []
 const date = cfg.date || ''
+// Optional overrides. Preparation is judgment and writing, so by default it runs on the session's own model;
+// pass a faster model only for batches that are purely mechanical.
+const modelOpts = { ...(cfg.model ? { model: cfg.model } : {}), ...(cfg.effort ? { effort: cfg.effort } : {}) }
 if (!root || !batches.length) throw new Error('args must include root and batches')
 
 const PLAN_SCHEMA = {
@@ -87,7 +90,7 @@ OUTPUT
 
 phase('Prepare')
 const out = await parallel(batches.map(batchId => () =>
-  agent(buildPrompt(batchId), { label: `prepare:${batchId}`, phase: 'Prepare', schema: PLAN_SCHEMA, agentType: 'general-purpose' })
+  agent(buildPrompt(batchId), { label: `prepare:${batchId}`, phase: 'Prepare', schema: PLAN_SCHEMA, agentType: 'general-purpose', ...modelOpts })
     .then(r => (r ? { batch: batchId, plans: r.plans || [], lessons: r.lessons || [] } : { batch: batchId, plans: [], lessons: [], incomplete: true }))
 ))
 

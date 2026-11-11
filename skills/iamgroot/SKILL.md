@@ -51,6 +51,16 @@ Everything about the candidate goes in a `profile/` folder in the user's working
 - **Shell only:** discover, review and track roles; prepare the answers for each form as a list of field and value; the user pastes and submits.
 - **Chat only** (no shell, no browser): run onboarding as a conversation and keep the profile as a document in the chat or project. When the user pastes a job description or a form, check the fit, then give the answers field by field and any cover note. Keep the tracker as a table and update it whenever the user reports an outcome.
 
+## Workflows and batch work: the right model for each stage
+
+When you handle many roles at once (a workflow, helper agents, or any batch), use the models your own AI tool provides, and give each stage to the model that tool offers for that kind of work:
+
+- **Research** (finding companies, reading about an employer, salary data): the tool's research model or research mode.
+- **Judgment and writing** (fit decisions, written answers, the check before an application is sent): the tool's strongest reasoning model.
+- **Mechanical steps** (scanning listings, extracting form fields, formatting the tracker): the tool's fast, low-cost model.
+
+Prefer the tool's own models over anything external, and never send candidate data to another provider to reach a different model. If the tool offers one model, use it for every stage.
+
 Submitting an application is a real-world action in the user's name. Do it only when the user has asked you to apply, and only from the session the user is talking to: helper agents should prepare applications, not submit them.
 
 ## Rules that never bend

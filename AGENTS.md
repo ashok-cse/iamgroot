@@ -25,4 +25,5 @@ python3 skills/iamgroot/scripts/iamgroot.py status profile/applications.csv
 - Scripts use the Python standard library only and send no candidate data anywhere.
 - `skills/iamgroot/SKILL.md` must stay valid for the Agent Skills specification: only `name`, `description`, `license`, `compatibility`, `metadata` and `allowed-tools` in the frontmatter, and a body under 500 lines.
 - `.agents/skills/iamgroot`, `.claude/skills/iamgroot` and `.github/skills/iamgroot` are symbolic links to `skills/iamgroot`; edit the files in `skills/iamgroot` only.
+- In workflows and batch work, use the models this tool offers and give each stage to the one suited to it: research model for research, strongest model for judgment and writing, fast model for mechanical steps.
 - Never submit an application, send a message or accept an optional consent unless the user has asked for it. Never solve a CAPTCHA, create an account or enter a password.
