@@ -69,6 +69,10 @@ Fill pattern, all in one `browser_batch`:
 - Location autocomplete: focus, type the city (or country), `wait` 2 s, press `Return`; the first suggestion is preselected. Verify the value afterwards (`Berlin, Germany`).
 - Date picker: focus, type `MM/DD/YYYY`, press `Escape`.
 - A plain-text start-date field takes words ("September 2027"), never an ambiguous numeric date.
+- Follow-up questions appear only after an answer. Answering a Yes/No or picking a currency can add new required fields below it (a permit question after "eligible to work: Yes", a salary-range picker after the currency). After every Yes/No, radio and select, list the labels again and compare with the list you started from before you verify and submit.
+- Moving from one autocomplete to the next: after `Return` picks an option, the component can take focus back, so a scripted `focus()` on the next field is undone and the next typed text lands in the field you just left. Move with a real click on the next field and check `document.activeElement` before typing.
+- Picking the option that is already selected leaves the typed fragment in the box until the field loses focus. Press `Tab`, then read the value.
+- Pickers with a fixed list (currency, salary range) may show no options on focus: click the toggle button beside the input to open the list, read `[role=option]`, then type a unique part of the option and press `Return`.
 
 Verify in a later `javascript_tool` step, never in the same script that clicked: the active class on a Yes/No button appears only after React re-renders. Ignore the hidden reCAPTCHA `textarea` when checking that textareas are filled. A hidden checkbox behind a Yes/No widget is checked for Yes and unchecked for both No and unanswered, so read the active button instead.
 
@@ -108,6 +112,7 @@ window.__opts=()=>[...document.querySelectorAll('[class*=select__menu] [role=opt
 - Location: `__f('candidate-location')`, type the city, `wait` 3 s, `Return`.
 - Selects are react-select comboboxes: `__f(id)`, type the start of the option text, `Return`. Type enough text to be unique: typing `75.000` matched "65.000€ - 75.000€" before "75.000€ - 85.000€". Check the result with `__sv(id)`; on a multi-select, `Backspace` removes the last chosen value.
 - To list options that the API did not return (demographic questions), focus the field, press `ArrowDown`, read `__opts()`, press `Escape`.
+- The filter matches anywhere in the option text: typing `No` also lists "Yes, but not one of the visas listed here". Before `Return`, check that the focused option (`[class*=select__option--is-focused]`) is exactly the one you want.
 - Checkboxes: click the `label[for=id]`.
 - Resume: `find` "Resume/CV attach file input and Submit application button"; the first file input is the resume, the second is the cover letter.
 - Success is a redirect to a path ending in `/confirmation` with "Thank you for applying".
@@ -136,7 +141,8 @@ window.__cards=()=>[...document.querySelectorAll('[name^="cards["]')].filter(e=>
 
 - Match custom questions to their text with `get_page_text`: the order on the page is the order of `__cards()`.
 - Radios: find the input by its `value`, which is the full option text, and `click()` it.
-- Location is an autocomplete (`#location-input`): type the city, wait 2 s, then click the suggestion (suggestions are shown as "City, ISO3 country"). A hidden `selectedLocation` field holding a JSON object confirms the choice.
+- Location is an autocomplete (`#location-input`): type the city, wait 2 to 3 s, then pick the suggestion with a real click on its element (suggestions are shown as "City, ISO3 country"). A scripted `click()` or a blur clears the field. A hidden `selectedLocation` field holding a JSON object confirms the choice.
+- Native `select` fields (office location, survey location) can be set from script: set `value` and dispatch a bubbling `change` event.
 - Confirm the upload with `document.getElementById('resume-upload-input').files.length` and the "Success!" text beside the field.
 - An hCaptcha widget is present on the page. It normally passes silently on submit. If a challenge is shown, stop and report the application as blocked.
 - Success is a redirect to a path ending in `/thanks` with "Application submitted!".
@@ -148,3 +154,6 @@ window.__cards=()=>[...document.querySelectorAll('[name^="cards["]')].filter(e=>
 - **Yes/No is rendered three ways on Ashby alone:** two buttons, a radio `fieldset`, or a select. If the button helper finds nothing, look for radios inside the question's `fieldset` before assuming the question is missing.
 - **Unknown control types cost a round trip.** When the field list does not say whether a start date is a date picker or free text, or whether salary is a number, read the input's `type` and `placeholder` first and type afterwards.
 - **A salary field of type number, a date picker and an autocomplete all reject pasted prose.** Digits only, `MM/DD/YYYY`, and a typed prefix followed by `Return`.
+- **Label helpers must match exactly before they match by prefix.** A helper that finds a label starting with "Phone" also finds "Phonetic Pronunciation". Compare the whole label text first (ignoring the trailing asterisk) and fall back to a prefix only when nothing matches exactly.
+- **Emailed security codes are a human check.** Some Greenhouse boards respond to the first submit click by emailing an 8-character code "to confirm you're a human" and disabling the button until it is entered. Do not try to obtain or enter the code. Leave the filled form open in its tab, tell the candidate, and continue in a new tab.
+- **Shadow-DOM forms (SmartRecruiters "Easy apply").** `find` and `read_page` do not see the inputs. Walk shadow roots from a script to list and focus them by id (`first-name-input`, `last-name-input`, `email-input`, `confirm-email-input`, `linkedin-input`, `website-input`, `hiring-manager-message-input`), then type with real keys. To attach the resume, add a temporary file input to the page, upload to it with the file tool, copy its file into the hidden `spl-dropzone-file-input-*` input with a `DataTransfer`, dispatch `change`, and remove the temporary input. The form has a second page of screening questions behind "Next": read it before filling the first.
