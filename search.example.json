@@ -1,0 +1,7 @@
+{
+  "_comment": "Copy to profile/search.json and edit. boards are company slugs tried on Greenhouse, Lever and Ashby; the three regexes are case-insensitive.",
+  "boards": ["examplecompany", "anotherco", "thirdstartup"],
+  "include_title": "(engineer|developer|designer|analyst|manager)",
+  "exclude_title": "\\b(intern|internship|principal|director|head|vp)\\b",
+  "locations": "berlin|germany|london|united kingdom|remote"
+}

@@ -1,0 +1,13 @@
+# Everything personal lives in profile/ and is never committed:
+# the candidate profile, resumes, the application tracker and job lists.
+profile/
+graphify-out/
+
+# Belt and braces: never commit documents or trackers from anywhere else.
+*.pdf
+*.docx
+applications*.csv
+
+.DS_Store
+__pycache__/
+*.pyc
