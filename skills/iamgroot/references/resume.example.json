@@ -1,0 +1,63 @@
+{
+  "name": "Alex Example",
+  "headline": "Product Designer | Research, Interaction & Design Systems",
+  "contact": {
+    "email": "alex@example.com",
+    "phone": "+00 000 0000000",
+    "links": [
+      {"label": "linkedin.com/in/alex-example", "url": "https://www.linkedin.com/in/alex-example"},
+      {"label": "alex.example.com", "url": "https://alex.example.com"}
+    ]
+  },
+  "header_line": ["City, Country", "Available from Month Year"],
+  "summary": "Two or three sentences: years of experience, the kind of work, the main tools, and what you are doing now. Facts only, taken from the candidate's existing resume.",
+  "experience": [
+    {
+      "title": "Job Title",
+      "dates": "Jan 2024 -- Present",
+      "employer": "Employer, City",
+      "stack": "Main tools or methods (optional: leave out for roles without a stack line)",
+      "bullets": [
+        "What you did and the measurable result, in one sentence.",
+        "A second achievement with a number where one exists."
+      ]
+    },
+    {
+      "title": "Earlier Job Title",
+      "dates": "Jun 2021 -- Dec 2023",
+      "employer": "Earlier Employer, Remote",
+      "bullets": ["One line per achievement."]
+    }
+  ],
+  "projects": [
+    {
+      "name": "project.example",
+      "url": "https://project.example",
+      "stack": "Tools used",
+      "description": "One or two sentences on what it is and what you built."
+    }
+  ],
+  "skills": [
+    {"group": "Core", "items": "Skill one, skill two, skill three"},
+    {"group": "Tools", "items": "Tool one, tool two"}
+  ],
+  "education": [
+    {"school": "University Name", "degree": "Degree and subject", "detail": "City, Country | 2017 -- 2021"}
+  ],
+  "languages": [
+    {"language": "English", "level": "Fluent"},
+    {"language": "Second language", "level": "B1"}
+  ],
+  "target": "One sentence on the roles you are looking for.",
+  "variants": {
+    "home": {
+      "file": "Alex_Example_Resume.pdf"
+    },
+    "abroad": {
+      "file": "Alex_Example_Resume_Abroad.pdf",
+      "header_line": ["City, Country", "Open to relocation", "Available from Month Year", "Visa sponsorship required"],
+      "target": "The same sentence, naming the other country."
+    }
+  },
+  "_notes": "Optional keys: layout {left: [...], right: [...]} to move sections between columns, section_titles to rename them, column_ratio (default 0.67), font_size (8.45) and line_height (9.45) to make the content fit one page. Any other key with text or a list can be placed in the layout as its own section."
+}

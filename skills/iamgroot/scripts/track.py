@@ -1,6 +1,8 @@
 """Append one application row to the tracker: python3 track.py <csv> '<json object>'"""
 import csv, json, sys
 COLS = ["Company","Position","Location","Country","Job URL","Application URL","Date Applied","Application Method","Recruiter/HR Contact","Email Address","Salary Info","Start Date Info","Visa Sponsorship Info","Status","Notes","Custom Message Sent"]
+if len(sys.argv) != 3:
+    sys.exit(__doc__)
 row = json.loads(sys.argv[2])
 unknown = set(row) - set(COLS)
 assert not unknown, unknown

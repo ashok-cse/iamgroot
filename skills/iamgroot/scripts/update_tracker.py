@@ -1,5 +1,7 @@
 """Update fields of a tracked row by Job URL: python3 update.py <csv> <job url> '<json fields>'"""
 import csv, json, sys
+if len(sys.argv) != 4:
+    sys.exit(__doc__)
 path, url, fields = sys.argv[1], sys.argv[2], json.loads(sys.argv[3])
 with open(path, newline="", encoding="utf-8") as f:
     r = csv.DictReader(f); cols = r.fieldnames; rows = list(r)

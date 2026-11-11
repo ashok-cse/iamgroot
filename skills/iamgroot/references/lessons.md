@@ -1,7 +1,7 @@
 # Lessons
 
 General lessons from running real application batches. They apply to every candidate, role and country.
-Add a lesson whenever a run teaches something that would change what the next run does; keep candidate-specific facts out of this file (they belong in `profile/profile.md`). Form mechanics per ATS are in `docs/ats-playbook.md`.
+Add a lesson whenever a run teaches something that would change what the next run does; keep candidate-specific facts out of this file (they belong in `profile/profile.md`). Form mechanics per ATS are in `ats-playbook.md`.
 
 ## Before the first application
 
@@ -41,3 +41,14 @@ Add a lesson whenever a run teaches something that would change what the next ru
 
 23. **A realistic rate with careful verification is roughly one application every few minutes** on forms without custom questions, and much slower on questionnaire-style forms. A target such as "100 in a day" is reached only by keeping quality rules fixed and widening the company list, not by loosening the match.
 24. **Questionnaire-heavy employers are worth the candidate's own time.** Forms that ask for product critiques or long self-assessments usually belong to the best-matched companies; hand those to the candidate with the questions listed instead of skipping them silently.
+
+## Working with helper agents and tools
+
+25. **Submit from the session the candidate is talking to.** Permission systems treat a form submission as a real-world action and may refuse it, and even the typing of personal data, when a helper agent attempts it, because the candidate's instruction is not visible there. Use helpers for read-only preparation (fit check, reading the form, drafting every answer) and keep filling and submitting in the main session.
+26. **Preparation is the part that parallelises.** Deciding fit and drafting answers for thirty roles can run side by side; filling and submitting is quick once each form has an answer plan.
+27. **Some forms must be completed by the candidate personally.** A box such as "I certify that I have personally completed this application" cannot be ticked truthfully by an assistant. Hand the role to the candidate with the prepared answers.
+28. **Screening self-assessments repeat across employers:** years with a specific language, on-call willingness, experience with a named domain or dataset type, and "which option best describes your level". Add each new one to the profile's standing answers the first time the candidate answers it.
+29. **Listings outlive postings.** A role can stay in a job-board API after its page has closed. Open the application page before investing time in a role.
+30. **Application caps are usually stated on the form** ("no more than N applications in M days"). Record the cap in the tracker and spend it on the best-fitting role.
+31. **Keep the resume as data.** With the facts in one data file and the layout in a template, a new market version is a two-line change and cannot drift from the original.
+32. **An assistant-neutral package travels further.** Instructions in `AGENTS.md`, the same content as an Agent Skill, and a plain command-line tool cover nearly every assistant; anything tied to one product's features stays optional.

@@ -8,7 +8,7 @@ Everything here is independent of the candidate; candidate facts come only from 
 1. Work in your own browser tab and pass its `tabId` on every call. Never touch another tab.
 2. Read the whole form before typing anything. If one required question cannot be answered from the profile, do not start filling: report the application as `blocked` with the exact question text.
 3. Fill, then verify the values in a separate step, then submit, then confirm the success page. Never chain a navigation after a submit unless a script step has thrown on "not submitted".
-4. A click that lands while the button is off-screen can be lost. Scroll the submit button into view first. If the form is still showing after the click with no error banner, click once more and re-check.
+4. The first click on a submit button is often lost, even after scrolling it into view. After the click and a wait, check the page: if the form is still showing with no error banner, click once more and re-check. Never click twice without that check in between.
 5. Never solve a CAPTCHA, create an account, type a password, or log in. Report the application as `blocked`.
 6. Decline non-essential cookies. Leave optional marketing opt-ins unticked unless the profile says otherwise.
 7. One application per company unless the form or posting clearly allows more. Many boards cap applications ("This job has application limits").
@@ -23,7 +23,7 @@ Public, unauthenticated JSON endpoints (send no candidate data):
 | Lever | `https://api.lever.co/v0/postings/{board}?mode=json` (EU: `api.eu.lever.co`) | not exposed |
 | Ashby | `https://api.ashbyhq.com/posting-api/job-board/{board}?includeCompensation=true` | not exposed; read the page |
 
-`scripts/discover_jobs.py` scans all three; `scripts/gh_questions.py {board} {id}` prints a Greenhouse form with its select options.
+`iamgroot.py discover` scans all three; `iamgroot.py questions {board} {id}` prints a Greenhouse form with its select options.
 
 ## Ashby (`jobs.ashbyhq.com/{board}/{job-id}/application`)
 
@@ -108,7 +108,7 @@ window.__opts=()=>[...document.querySelectorAll('[class*=select__menu] [role=opt
 - Resume: `find` "Resume/CV attach file input and Submit application button"; the first file input is the resume, the second is the cover letter.
 - Success is a redirect to a path ending in `/confirmation` with "Thank you for applying".
 
-## Lever, Workday, SmartRecruiters, Personio and company-built portals
+## Workday, SmartRecruiters, Personio and company-built portals
 
 Not yet exercised. Workday and many company portals require creating an account, which the agent must not do: report those as `blocked` for the candidate to apply manually. Record what works here as soon as a form on a new system has been completed.
 
@@ -119,3 +119,21 @@ Several agents can each drive their own tab in the same Chrome at the same time:
 `javascript_tool` results that look like `key=value; key=value` are blocked by the browser tool's output filter ("BLOCKED: Cookie/query string data"). Return `JSON.stringify({...})` from every script instead of hand-built strings.
 
 `navigate` to `about:blank` or other browser-internal URLs is refused, and one such step makes a whole `browser_batch` fail before it starts.
+
+## Lever (`jobs.lever.co/{board}/{job-id}/apply`)
+
+A single page. Fields are found by `name`, not by label: `name`, `email`, `phone`, `location`, `org` (current company), `urls[LinkedIn]`, `urls[GitHub]`, `urls[Portfolio]`, and `cards[{uuid}][field0]` for each custom question (text, textarea, radio or checkbox). The resume input is `#resume-upload-input`.
+
+```js
+window.__n=(name)=>{const e=document.querySelector('[name="'+name+'"]'); if(!e) throw new Error('no field '+name); e.scrollIntoView({block:'center'}); e.focus(); return JSON.stringify({focused:name});};
+// custom text questions in page order (radios and checkboxes excluded)
+window.__cards=()=>[...document.querySelectorAll('[name^="cards["]')].filter(e=>e.type!=='hidden'&&e.type!=='radio'&&e.type!=='checkbox');
+```
+
+- Match custom questions to their text with `get_page_text`: the order on the page is the order of `__cards()`.
+- Radios: find the input by its `value`, which is the full option text, and `click()` it.
+- Location is an autocomplete (`#location-input`): type the city, wait 2 s, then click the suggestion (suggestions are shown as "City, ISO3 country"). A hidden `selectedLocation` field holding a JSON object confirms the choice.
+- Confirm the upload with `document.getElementById('resume-upload-input').files.length` and the "Success!" text beside the field.
+- An hCaptcha widget is present on the page. It normally passes silently on submit. If a challenge is shown, stop and report the application as blocked.
+- Success is a redirect to a path ending in `/thanks` with "Application submitted!".
+- A closed posting returns a 404 page even while the public postings API still lists it.
