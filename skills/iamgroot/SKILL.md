@@ -16,6 +16,8 @@ You are IamGroot, the user's personal job hunter. You find roles that fit, apply
 | `references/ats-playbook.md` | Before filling a form in a browser: how each applicant-tracking system is read, filled, verified and submitted |
 | `references/lessons.md` | Before a run, and again at the end to add what the run taught |
 | `references/profile.example.md` | When creating the candidate profile |
+| `references/countries.md`, `references/country.example.md` | When the candidate targets a country: the right to work, pay and resume customs, form questions, and the questions to ask |
+| `references/job-portals.md` | When looking for roles: job boards per country, open feeds, and official lists of sponsoring employers |
 | `references/resume.example.json`, `assets/resume-template.tex` | When building the candidate's resume PDFs with `scripts/iamgroot.py resume` |
 | `references/search.example.json` | When creating the job-search configuration |
 | `references/agents.md` | When the user asks how to use IamGroot from another AI assistant |
@@ -23,18 +25,18 @@ You are IamGroot, the user's personal job hunter. You find roles that fit, apply
 
 ## Where the candidate's data lives
 
-Everything about the candidate goes in a `profile/` folder in the user's working directory: `profile/profile.md`, `profile/resume.json` and the built resumes, `profile/search.json`, `profile/jobs/` and the tracker `profile/applications.csv`. Never write candidate data into this skill folder and never commit `profile/`. `python3 scripts/iamgroot.py init` creates the folder from the templates and adds it to `.gitignore`.
+Everything about the candidate goes in a `profile/` folder in the user's working directory: `profile/profile.md`, one `profile/countries/<country>.md` per target country, `profile/resume.json` and the built resumes, `profile/search.json`, `profile/jobs/` and the tracker `profile/applications.csv`. Never write candidate data into this skill folder and never commit `profile/`. `python3 scripts/iamgroot.py init` creates the folder from the templates and adds it to `.gitignore`.
 
 ## The loop
 
-1. **Onboard.** If `profile/profile.md` is missing or has gaps, read the user's resume and ask the standing questions in as few rounds as possible (the list is in `references/instructions.md`, section 1). Write every answer into the profile at once, so it is never asked twice. Put the resume's facts into `profile/resume.json` and build one ATS-friendly PDF per target market with `python3 scripts/iamgroot.py resume --data profile/resume.json`; variants change only the header and target statement.
+1. **Onboard.** If `profile/profile.md` is missing or has gaps, read the user's resume and ask the standing questions in as few rounds as possible (the list is in `references/instructions.md`, section 1). Write every answer into the profile at once, so it is never asked twice. Put the resume's facts into `profile/resume.json` and build one ATS-friendly PDF per target market with `python3 scripts/iamgroot.py resume --data profile/resume.json`; variants change only the header and target statement. For each target country create a country profile with `python3 scripts/iamgroot.py country "<Country>"` and fill it from `references/countries.md` and the user's answers.
 2. **Find.** Fill `profile/search.json`, then:
    ```bash
    python3 scripts/iamgroot.py discover --config profile/search.json --out profile/jobs/hits.json
    python3 scripts/iamgroot.py review profile/jobs/hits.json --languages German
    python3 scripts/iamgroot.py review profile/jobs/hits.json --show 3 17
    ```
-   Also search company career pages and job boards for the target countries.
+   Also search company career pages and the job boards listed per country in `references/job-portals.md`.
 3. **Match.** Apply the checks in section 3 of the instructions. One role per company unless the posting clearly allows more.
 4. **Apply.** Read the whole form first. Fill it only from the profile, verify the values, submit, and confirm the success page, following `references/ats-playbook.md`. If a required question needs the candidate's own answer, do not submit: park the role with the exact question and continue.
 5. **Track.** Record every role, including parked and skipped ones:

@@ -2,6 +2,7 @@
 """iamgroot: one entry point for the job-hunter tools.
 
     python3 iamgroot.py init [--dir profile]          create the private profile folder from the templates
+    python3 iamgroot.py country "Name" [--dir profile]  create the private profile for one target country
     python3 iamgroot.py resume --data profile/resume.json   build ATS-friendly resume PDFs with LaTeX
     python3 iamgroot.py discover --config ... --out ...   scan public job boards for matching roles
     python3 iamgroot.py review HITS [--show N ...]    list roles with requirement flags, or show details
@@ -66,6 +67,26 @@ def init(argv):
     print(f"Next: fill in {target}/profile.md, {target}/resume.json and {target}/search.json (your assistant can do this with you).")
 
 
+def country(argv):
+    names = [a for i, a in enumerate(argv) if not a.startswith("--") and (i == 0 or argv[i - 1] != "--dir")]
+    if not names:
+        sys.exit('usage: iamgroot.py country "Country name" [--dir profile]')
+    target = argv[argv.index("--dir") + 1] if "--dir" in argv else "profile"
+    folder = os.path.join(target, "countries")
+    os.makedirs(folder, exist_ok=True)
+    template = open(os.path.join(REFERENCES, "country.example.md"), encoding="utf-8").read()
+    for name in names:
+        slug = "-".join("".join(c if c.isalnum() else " " for c in name.lower()).split())
+        dest = os.path.join(folder, slug + ".md")
+        if os.path.exists(dest):
+            print("kept   ", dest)
+            continue
+        with open(dest, "w", encoding="utf-8") as f:
+            f.write(template.replace("{{COUNTRY}}", name).replace(" (template)", "", 1))
+        print("created", dest)
+    print("Next: fill each file from references/countries.md and the candidate's answers.")
+
+
 def status(argv):
     path = argv[0] if argv else os.path.join("profile", "applications.csv")
     if not os.path.exists(path):
@@ -90,6 +111,8 @@ def main():
     command, rest = argv[0], argv[1:]
     if command == "init":
         return init(rest)
+    if command == "country":
+        return country(rest)
     if command == "status":
         return status(rest)
     if command not in COMMANDS:

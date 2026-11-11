@@ -36,6 +36,8 @@ This file is the single source of truth for the candidate. Agents may only state
 - Target cities and remote policy:
 - Resume source file and how to rebuild the PDFs:
 
+Each target country also gets its own file in `profile/countries/` (create it with `iamgroot.py country "<Country>"`); it holds the answers, pay figures and resume for that country.
+
 ## Work authorization (one block per country)
 
 - **Country:**
