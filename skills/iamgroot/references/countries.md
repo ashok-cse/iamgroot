@@ -15,7 +15,19 @@ Before the first application in a new country:
 3. Ask the country questions below in one round.
 4. Research a salary default and range in the country's own convention (yearly or monthly, local currency) and record the sources.
 5. Build a resume variant whose header and target statement fit that country.
-6. Add the country's place names to the search configuration.
+6. Add the country's place names to the search configuration, and the country's portals from `job-portals.md`.
+7. Work out when to apply there (next section) and tell the candidate if today is outside that window.
+
+## When to apply
+
+An application is read against a start date. A posting that is open today is meant to be filled in the next one to three months, so an application for a start much later than that is usually rejected for timing alone, and the rejection can stay on file and count against a later application to the same employer.
+
+Work the window out from the candidate's start date before the first application:
+
+- **Lead time = the usual notice period in that country + the time the work permit takes.** The table below gives a rule of thumb per country.
+- **Some permits run on a calendar.** Where a country has a yearly lottery or quota, the employer's deadline sets the window, not the start date.
+- **Outside the window, say so plainly and do not apply**, even when the candidate asks for volume. Offer what does help while waiting: roles that state the later start date, employers the candidate already works or studies with, contacts and referrals, and keeping the profile, resumes and portal list ready.
+- **Inside the window, search again.** Postings found earlier have been filled.
 
 ## Questions to ask for each new country
 
@@ -31,17 +43,20 @@ Before the first application in a new country:
 
 ## What differs, at a glance
 
-| Country | Usual work permit for a hire from abroad | Pay is quoted | Resume |
-| --- | --- | --- | --- |
-| United States | H-1B (yearly lottery) | per year, USD | 1 page, no photo, no personal data |
-| United Kingdom | Skilled Worker | per year, GBP | 2 pages, no photo |
-| Germany | EU Blue Card | per year, EUR | up to 2 pages, photo optional |
-| Netherlands | Highly skilled migrant | per month, EUR, plus 8% holiday allowance | 1 to 2 pages |
-| Sweden | Work permit | per month, SEK | 1 to 2 pages plus a short letter |
-| Finland | Specialist residence permit | per month, EUR | 1 to 2 pages |
-| Poland | Work permit or EU Blue Card | per month, PLN, by contract type | 1 to 2 pages with a data-consent clause |
-| Switzerland | B or L permit under a yearly quota | per year, CHF, often in 13 payments | 2 pages, photo customary, certificates attached |
-| Singapore | Employment Pass | per month, SGD | 1 to 2 pages |
+| Country | Usual work permit for a hire from abroad | Pay is quoted | Resume | Apply before the start date (rule of thumb) |
+| --- | --- | --- | --- | --- |
+| United States | H-1B (yearly lottery) | per year, USD | 1 page, no photo, no personal data | by the lottery calendar: chosen by an employer before the March registration for a start on 1 October |
+| United Kingdom | Skilled Worker | per year, GBP | 2 pages, no photo | 3 to 5 months |
+| Germany | EU Blue Card | per year, EUR | up to 2 pages, photo optional | 2 to 4 months |
+| Netherlands | Highly skilled migrant | per month, EUR, plus 8% holiday allowance | 1 to 2 pages | 3 to 5 months |
+| Sweden | Work permit | per month, SEK | 1 to 2 pages plus a short letter | 3 to 6 months |
+| Finland | Specialist residence permit | per month, EUR | 1 to 2 pages | 2 to 4 months |
+| Poland | Work permit or EU Blue Card | per month, PLN, by contract type | 1 to 2 pages with a data-consent clause | 4 to 6 months |
+| Switzerland | B or L permit under a yearly quota | per year, CHF, often in 13 payments | 2 pages, photo customary, certificates attached | 4 to 6 months |
+| Singapore | Employment Pass | per month, SGD | 1 to 2 pages | 2 to 4 months |
+| India | Employment visa | per year, INR, as "CTC" in lakhs | 1 to 2 pages | 1 to 3 months |
+
+A candidate who already has the right to work in a country needs only the notice-period part of the lead time: one to three months almost everywhere.
 
 ## United States
 
@@ -109,6 +124,16 @@ Before the first application in a new country:
 - **Pay.** Monthly, SGD; a thirteenth month and a bonus are common.
 - **Resume.** One to two pages.
 - **Forms ask.** Nationality and residency status (citizen, permanent resident, pass holder), current or last salary, expected salary, notice period. Where the profile does not allow a question to be answered, stop and ask.
+
+## India
+
+- **Right to work.** Citizens and holders of an Overseas Citizen of India card need no permit. Other foreign nationals need an Employment visa sponsored by an Indian employer, with a minimum yearly salary that was reported raised from INR 16.25 lakh to INR 24 lakh in late 2026; the change was not confirmed on an official page when checked. Checked November 2026: `indianvisaonline.gov.in` and the Bureau of Immigration (`boi.gov.in`).
+- **Pay.** Quoted per year as "CTC" (cost to company) in lakhs of rupees, written "LPA"; 1 lakh is 100,000. CTC includes the employer's retirement contributions and often a variable part, so the fixed monthly pay is lower than CTC divided by twelve. Ask which part is fixed before comparing offers.
+- **Notice periods are long**: 30 to 90 days is normal, and employers ask how soon the candidate can join.
+- **Resume.** One to two pages. No photo needed.
+- **Where hiring happens.** Recruiters search candidate profiles on the large boards, so the candidate's own profile there, kept complete and recently updated, brings contacts that applications alone do not. The profile and its sign-in are the candidate's to manage.
+- **Forms ask.** Current CTC and expected CTC, notice period or last working day, total and relevant years of experience, current city and willingness to relocate. Where the profile does not record current pay, stop and ask.
+- **Identity numbers.** Some forms ask for a PAN or Aadhaar number. These are government identity numbers: the agent never types them. Leave the field for the candidate.
 
 ## Adding a country
 

@@ -3,20 +3,35 @@
 
     python3 discover_jobs.py --config profile/search.json --out profile/jobs/hits.json
 
-Covers Greenhouse, Lever, Ashby, SmartRecruiters, Personio, Recruitee and Workable.
-Only anonymous requests to public job-board endpoints are made; no candidate data is sent.
+Two kinds of source, both read with anonymous requests:
+
+  company career pages   Greenhouse, Lever, Ashby, SmartRecruiters, Personio, Recruitee and Workable,
+                         tried for every name under "boards"
+  job portals            boards that publish an open feed, named under "portals":
+                         arbeitnow, germantechjobs (Germany), swissdevjobs, jobsch (Switzerland),
+                         devitjobsuk (United Kingdom), devitjobsnl (Netherlands), devitjobsus (United States, Canada),
+                         platsbanken (Sweden), duunitori (Finland), mycareersfuture (Singapore),
+                         instahyre, hasjob (India), landingjobs (Europe),
+                         remotive, remoteok, jobicy, himalayas, workingnomads (remote roles)
+
+No candidate data is sent. The only text that leaves the machine is the company names and, for portals
+that search by text, the search terms under "queries": keep personal details out of both.
 
 The config is a JSON file (see references/search.example.json):
-    boards         list of company board names to try on every system
+    boards         company board names to try on every career-page system (may be empty)
     include_title  regex a job title must match
     exclude_title  regex that removes a title (seniority, unrelated functions)
-    locations      regex a job location must match
-    systems        optional list limiting which systems to query
+    locations      regex a job location must match; portal locations end with the country name in English
+    systems        optional list limiting which career-page systems to query
+    portals        optional list of job portals to read
+    queries        search terms for the portals that search by text
+    only_english   true keeps only portal listings written in English
 """
 import argparse
 import html
 import json
 import re
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor
@@ -177,6 +192,311 @@ SYSTEMS = {"greenhouse": greenhouse, "lever": lever, "ashby": ashby, "smartrecru
            "personio": personio, "recruitee": recruitee, "workable": workable}
 
 
+# Job portals with an open feed. Each reader takes (queries, keep) and returns
+# (number of listings read, matching jobs). Locations end with the country name in English,
+# so one "locations" regex works for career pages and portals alike.
+
+ENGLISH_WORDS = {"the", "and", "you", "with", "our", "for", "are", "will", "team", "experience", "we", "to", "of", "in"}
+
+
+def looks_english(text):
+    words = re.findall(r"[^\W\d_]+", (text or "").lower())[:400]
+    return bool(words) and sum(w in ENGLISH_WORDS for w in words) / len(words) > 0.12
+
+
+def pay(low, high, unit):
+    return f"{low}-{high} {unit}" if low and high else ""
+
+
+def arbeitnow(queries, keep):
+    total, out = 0, []
+    for page in range(1, 11):
+        d = fetch(f"https://www.arbeitnow.com/api/job-board-api?page={page}")
+        data = (d or {}).get("data", [])
+        if not data:
+            break
+        total += len(data)
+        for j in data:
+            loc = re.sub(r"\bDeutschland\b", "Germany", j.get("location") or "")
+            loc += ("" if "germany" in loc.lower() else ", Germany") + (" (remote)" if j.get("remote") else "")
+            if keep(j.get("title", ""), loc):
+                text = clean(j.get("description")) + " " + " ".join((j.get("tags") or []) + (j.get("job_types") or []))
+                out.append(job("arbeitnow", j.get("company_name"), j.get("title"), loc, j.get("url"), j.get("created_at"), text))
+        if not ((d.get("links") or {}).get("next")):
+            break
+    return total, out
+
+
+def _devjobs(site, name, country, currency):
+    """Reader for the DevJobs family of boards (same feed format on every country site)."""
+    def reader(queries, keep):
+        d = fetch(f"https://{site}/api/jobsLight")
+        data = d if isinstance(d, list) else []
+        out = []
+        for j in data:
+            where = country(j) if callable(country) else country
+            loc = f"{j.get('actualCity') or j.get('cityCategory') or ''}, {where}" + (" (remote)" if j.get("workplace") == "remote" else "")
+            if keep(j.get("name", ""), loc):
+                visa = {"yes": "Visa sponsorship available.", "no": "Cannot sponsor a work permit."}.get(
+                    str(j.get("hasVisaSponsorship", "")).lower(), "")
+                text = (f"Technologies: {', '.join(j.get('technologies') or [])}. Level: {j.get('expLevel', '')}. "
+                        f"Working language: {j.get('language', '')}. {visa} "
+                        f"Type: {j.get('jobType', '')}. Workplace: {j.get('workplace', '')}.")
+                out.append(job(name, j.get("company"), j.get("name"), loc, f"https://{site}/jobs/{j.get('jobUrl')}",
+                               j.get("activeFrom"), text, comp=pay(j.get("annualSalaryFrom"), j.get("annualSalaryTo"), currency + "/year"),
+                               language=j.get("language") or "", apply=j.get("redirectJobUrl") or ""))
+        return len(data), out
+    return reader
+
+
+def _north_america(j):
+    state = (j.get("stateCategory") or "").replace("-", " ")
+    return "Canada" if state == "Canada" else ", ".join(x for x in (state, "United States") if x)
+
+
+def jobsch(queries, keep):
+    total, out = 0, []
+    for q in queries:
+        for page in range(1, 11):  # the feed serves at most 20 rows a page
+            d = fetch("https://www.jobs.ch/api/v1/public/search?rows=20&page=%d&query=%s" % (page, urllib.parse.quote(q)))
+            docs = (d or {}).get("documents", [])
+            if not docs:
+                break
+            total += len(docs)
+            for j in docs:
+                loc = (j.get("place") or "") + ", Switzerland"
+                if keep(j.get("title", ""), loc):
+                    links = j.get("_links") or {}
+                    url = ((links.get("detail_en") or links.get("detail_de") or links.get("detail_fr") or {}).get("href")) or ""
+                    langs = ", ".join(f"{x.get('language')} level {x.get('level')}" for x in j.get("language_skills") or [])
+                    out.append(job("jobsch", j.get("company_name"), j.get("title"), loc, url, j.get("publication_date"),
+                                   clean(j.get("preview")) + (f" Languages asked: {langs}." if langs else "")))
+            if page >= (d.get("num_pages") or 1):
+                break
+    return total, out
+
+
+def platsbanken(queries, keep):
+    total, out = 0, []
+    for q in queries:
+        for offset in (0, 100, 200):
+            d = fetch("https://jobsearch.api.jobtechdev.se/search?limit=100&offset=%d&q=%s" % (offset, urllib.parse.quote(q)))
+            found = (d or {}).get("hits", [])
+            if not found:
+                break
+            total += len(found)
+            for j in found:
+                w = j.get("workplace_address") or {}
+                loc = ", ".join(x for x in (w.get("municipality"), w.get("region"), "Sweden") if x)
+                if keep(j.get("headline", ""), loc):
+                    out.append(job("platsbanken", (j.get("employer") or {}).get("name"), j.get("headline"), loc, j.get("webpage_url"),
+                                   j.get("publication_date"), clean((j.get("description") or {}).get("text")),
+                                   apply=(j.get("application_details") or {}).get("url") or ""))
+            if len(found) < 100:
+                break
+    return total, out
+
+
+def duunitori(queries, keep):
+    total, out = 0, []
+    for q in queries:
+        url = "https://duunitori.fi/api/v1/jobentries?format=json&search=" + urllib.parse.quote(q)
+        for _ in range(5):
+            d = fetch(url)
+            found = (d or {}).get("results", [])
+            if not found:
+                break
+            total += len(found)
+            for j in found:
+                loc = (j.get("municipality_name") or "") + ", Finland"
+                if keep(j.get("heading", ""), loc):
+                    out.append(job("duunitori", j.get("company_name"), j.get("heading"), loc,
+                                   f"https://duunitori.fi/tyopaikat/tyo/{j.get('slug')}", j.get("date_posted"), clean(j.get("descr"))))
+            url = d.get("next")
+            if not url:
+                break
+    return total, out
+
+
+def mycareersfuture(queries, keep):
+    total, out = 0, []
+    for q in queries:
+        for page in range(3):
+            d = fetch("https://api.mycareersfuture.gov.sg/v2/jobs?limit=100&page=%d&search=%s" % (page, urllib.parse.quote(q)))
+            found = (d or {}).get("results", [])
+            if not found:
+                break
+            total += len(found)
+            for j in found:
+                if keep(j.get("title", ""), "Singapore"):
+                    sal, meta = j.get("salary") or {}, j.get("metadata") or {}
+                    kinds = ", ".join(x.get("employmentType", "") for x in j.get("employmentTypes") or [])
+                    text = clean(j.get("description")) + f" Minimum years of experience: {j.get('minimumYearsExperience')}. Type: {kinds}."
+                    out.append(job("mycareersfuture", (j.get("postedCompany") or {}).get("name"), j.get("title"), "Singapore",
+                                   meta.get("jobDetailsUrl"), meta.get("newPostingDate"), text,
+                                   comp=pay(sal.get("minimum"), sal.get("maximum"), "SGD/month")))
+            if len(found) < 100:
+                break
+    return total, out
+
+
+def remotive(queries, keep):
+    total, out = 0, []
+    for q in queries:
+        d = fetch("https://remotive.com/api/remote-jobs?search=" + urllib.parse.quote(q))
+        found = (d or {}).get("jobs", [])
+        total += len(found)
+        for j in found:
+            loc = (j.get("candidate_required_location") or "Worldwide") + " (remote)"
+            if keep(j.get("title", ""), loc):
+                out.append(job("remotive", j.get("company_name"), j.get("title"), loc, j.get("url"), j.get("publication_date"),
+                               clean(j.get("description")), comp=j.get("salary") or ""))
+    return total, out
+
+
+def remoteok(queries, keep):
+    d = fetch("https://remoteok.com/api")
+    data = [j for j in d if isinstance(j, dict) and j.get("position")] if isinstance(d, list) else []
+    out = []
+    for j in data:
+        loc = (j.get("location") or "Worldwide") + " (remote)"
+        if keep(j.get("position", ""), loc):
+            out.append(job("remoteok", j.get("company"), j.get("position"), loc, j.get("url"), j.get("date"),
+                           clean(j.get("description")) + " " + " ".join(j.get("tags") or []),
+                           comp=pay(j.get("salary_min"), j.get("salary_max"), "USD/year")))
+    return len(data), out
+
+
+def jobicy(queries, keep):
+    total, out = 0, []
+    for q in queries or [""]:
+        d = fetch("https://jobicy.com/api/v2/remote-jobs?count=100" + ("&tag=" + urllib.parse.quote(q) if q else ""))
+        found = (d or {}).get("jobs", [])
+        total += len(found)
+        for j in found:
+            loc = (j.get("jobGeo") or "Worldwide") + " (remote)"
+            if keep(j.get("jobTitle", ""), loc):
+                out.append(job("jobicy", j.get("companyName"), j.get("jobTitle"), loc, j.get("url"), j.get("pubDate"),
+                               clean(j.get("jobDescription") or j.get("jobExcerpt")),
+                               comp=pay(j.get("salaryMin"), j.get("salaryMax"), f"{j.get('salaryCurrency') or ''}/{j.get('salaryPeriod') or 'year'}")))
+    return total, out
+
+
+def himalayas(queries, keep):
+    total, out = 0, []
+    for q in queries:
+        for offset in range(0, 100, 20):  # the feed serves 20 rows a page
+            d = fetch("https://himalayas.app/jobs/api/search?limit=20&offset=%d&q=%s" % (offset, urllib.parse.quote(q)))
+            found = (d or {}).get("jobs", [])
+            if not found:
+                break
+            total += len(found)
+            for j in found:
+                loc = (", ".join(j.get("locationRestrictions") or []) or "Worldwide") + " (remote)"
+                if keep(j.get("title", ""), loc):
+                    out.append(job("himalayas", j.get("companyName"), j.get("title"), loc, j.get("guid") or j.get("applicationLink"),
+                                   j.get("pubDate"), clean(j.get("description") or j.get("excerpt")),
+                                   comp=pay(j.get("minSalary"), j.get("maxSalary"), f"{j.get('currency') or ''}/{j.get('salaryPeriod') or 'year'}")))
+    return total, out
+
+
+def workingnomads(queries, keep):
+    d = fetch("https://www.workingnomads.com/api/exposed_jobs/")
+    data = d if isinstance(d, list) else []
+    out = []
+    for j in data:
+        loc = (j.get("location") or "Worldwide") + " (remote)"
+        if keep(j.get("title", ""), loc):
+            out.append(job("workingnomads", j.get("company_name"), j.get("title"), loc, j.get("url"), j.get("pub_date"),
+                           clean(j.get("description")) + " " + (j.get("tags") or "")))
+    return len(data), out
+
+
+def instahyre(queries, keep):
+    total, out = 0, []
+    for q in queries or [""]:
+        for offset in range(0, 100, 20):  # the feed serves 20 rows a page
+            d = fetch("https://www.instahyre.com/api/v1/job_search?company_size=0&isLandingPage=true&job_type=0&offset=%d%s"
+                      % (offset, "&skills=" + urllib.parse.quote(q) if q else ""))
+            found = (d or {}).get("objects", [])
+            if not found:
+                break
+            total += len(found)
+            for j in found:
+                emp = j.get("employer") or {}
+                loc = (j.get("locations") or "") + ", India"
+                if keep(j.get("title", ""), loc):
+                    text = f"Skills: {', '.join(j.get('keywords') or [])}. {clean(emp.get('instahyre_note'))} {clean(emp.get('company_tagline'))}"
+                    out.append(job("instahyre", emp.get("company_name"), j.get("title"), loc, j.get("public_url"), "", text))
+    return total, out
+
+
+COUNTRY_NAMES = {"AT": "Austria", "BE": "Belgium", "CH": "Switzerland", "CZ": "Czechia", "DE": "Germany", "DK": "Denmark",
+                 "ES": "Spain", "FI": "Finland", "FR": "France", "GB": "United Kingdom", "IE": "Ireland", "IT": "Italy",
+                 "LU": "Luxembourg", "NL": "Netherlands", "NO": "Norway", "PL": "Poland", "PT": "Portugal", "SE": "Sweden",
+                 "US": "United States", "BR": "Brazil", "CA": "Canada"}
+
+
+def landingjobs(queries, keep):
+    total, out = 0, []
+    for offset in range(0, 500, 50):
+        d = fetch(f"https://landing.jobs/api/v1/jobs?limit=50&offset={offset}")
+        found = d if isinstance(d, list) else []
+        if not found:
+            break
+        total += len(found)
+        for j in found:
+            loc = "; ".join(f"{x.get('city') or ''}, {COUNTRY_NAMES.get(x.get('country_code'), x.get('country_code') or '')}"
+                            for x in j.get("locations") or []) + (" (remote)" if j.get("remote") else "")
+            if keep(j.get("title", ""), loc):
+                text = " ".join(clean(j.get(k)) for k in ("role_description", "main_requirements", "nice_to_have", "perks"))
+                text += " " + ", ".join(j.get("tags") or []) + (" Relocation support paid by the employer." if j.get("relocation_paid") else "")
+                out.append(job("landingjobs", "", j.get("title"), loc, j.get("url"), j.get("published_at"), text,
+                               comp=pay(j.get("gross_salary_low"), j.get("gross_salary_high"), f"{j.get('currency_code') or ''}/year")))
+        if len(found) < 50:
+            break
+    for j in out:  # the company is only in the address: landing.jobs/at/{company}/{role}
+        m = re.search(r"/at/([^/]+)/", j["url"])
+        j["company"] = m.group(1) if m else ""
+    return total, out
+
+
+def hasjob(queries, keep):
+    b = fetch("https://hasjob.co/feed", raw=True)
+    try:
+        entries = ET.fromstring(b).findall("{http://www.w3.org/2005/Atom}entry") if b else []
+    except ET.ParseError:
+        entries = []
+    out = []
+    for e in entries:
+        ns = "{http://www.w3.org/2005/Atom}"
+        title, content = e.findtext(ns + "title") or "", e.findtext(ns + "content") or ""
+        loc = (e.findtext(ns + "location") or "") + ", India"
+        if keep(title, loc):
+            company = re.search(r"<strong>(?:<a[^>]*>)?([^<]+)", content)
+            link = e.find(ns + "link")
+            out.append(job("hasjob", company.group(1).strip() if company else "", title, loc,
+                           link.get("href") if link is not None else "", e.findtext(ns + "published"), clean(content)))
+    return len(entries), out
+
+
+PORTALS = {
+    # Germany, Switzerland, United Kingdom, Netherlands, North America: the DevJobs family
+    "germantechjobs": _devjobs("germantechjobs.de", "germantechjobs", "Germany", "EUR"),
+    "swissdevjobs": _devjobs("swissdevjobs.ch", "swissdevjobs", "Switzerland", "CHF"),
+    "devitjobsuk": _devjobs("devitjobs.uk", "devitjobsuk", "United Kingdom", "GBP"),
+    "devitjobsnl": _devjobs("devitjobs.nl", "devitjobsnl", "Netherlands", "EUR"),
+    "devitjobsus": _devjobs("devitjobs.us", "devitjobsus", _north_america, "USD"),
+    # single-country boards
+    "arbeitnow": arbeitnow, "jobsch": jobsch, "platsbanken": platsbanken, "duunitori": duunitori,
+    "mycareersfuture": mycareersfuture, "instahyre": instahyre, "hasjob": hasjob,
+    # several countries, and remote roles
+    "landingjobs": landingjobs, "remotive": remotive, "remoteok": remoteok, "jobicy": jobicy,
+    "himalayas": himalayas, "workingnomads": workingnomads,
+}
+NEEDS_QUERY = {"jobsch", "platsbanken", "duunitori", "mycareersfuture", "remotive", "himalayas"}
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--config", required=True)
@@ -203,20 +523,53 @@ def main():
             hits += jobs
         return slug, found, hits
 
-    slugs = sorted(set(cfg["boards"]))
+    slugs = sorted(set(cfg.get("boards") or []))
     hits, boards = [], {}
     with ThreadPoolExecutor(16) as ex:
         for slug, found, jobs in ex.map(scan, slugs):
             if found:
                 boards[slug] = found
             hits += jobs
+    company_roles = len(hits)
+
+    # job portals with an open feed
+    queries = [q for q in cfg.get("queries") or [] if q.strip()]
+    english_only = bool(cfg.get("only_english"))
+    portal_report = []
+    for name in cfg.get("portals") or []:
+        if name not in PORTALS:
+            portal_report.append(f"{name}(unknown portal; known: {', '.join(sorted(PORTALS))})")
+            continue
+        if name in NEEDS_QUERY and not queries:
+            portal_report.append(f"{name}(skipped: add search terms under \"queries\")")
+            continue
+        try:
+            total, jobs = PORTALS[name](queries, keep)
+        except Exception:
+            total, jobs = 0, []
+        if english_only:
+            jobs = [j for j in jobs if (j.get("language") or "").lower() == "english" or (not j.get("language") and looks_english(j["text"]))]
+        hits += jobs
+        portal_report.append(f"{name}({total} read, {len(jobs)} kept)")
+
+    # the same role can come from several sources and searches: keep the first copy
+    seen, unique = set(), []
+    for j in hits:
+        key = j["url"] or (j["company"].lower(), j["title"].lower(), j["location"].lower())
+        if key not in seen:
+            seen.add(key)
+            unique.append(j)
     with open(a.out, "w", encoding="utf-8") as f:
-        json.dump(hits, f, ensure_ascii=False, indent=1)
-    print(f"boards found: {len(boards)} of {len(slugs)} names; matching roles: {len(hits)}")
-    print("boards:", ", ".join(f"{s}({'/'.join(f'{k}:{v}' for k, v in found.items())})" for s, found in sorted(boards.items())))
-    missing = [s for s in slugs if s not in boards]
-    if missing:
-        print("no board for:", ", ".join(missing))
+        json.dump(unique, f, ensure_ascii=False, indent=1)
+    if slugs:
+        print(f"boards found: {len(boards)} of {len(slugs)} names; matching roles: {company_roles}")
+        print("boards:", ", ".join(f"{s}({'/'.join(f'{k}:{v}' for k, v in found.items())})" for s, found in sorted(boards.items())))
+        missing = [s for s in slugs if s not in boards]
+        if missing:
+            print("no board for:", ", ".join(missing))
+    if portal_report:
+        print("portals:", ", ".join(portal_report))
+    print(f"total roles written: {len(unique)}")
 
 
 if __name__ == "__main__":

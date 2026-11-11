@@ -57,7 +57,8 @@ def init(argv):
             csv.writer(f).writerow(TRACKER_COLUMNS)
         print("created", tracker)
     # keep the private folder out of version control
-    if os.path.isdir(".git"):
+    inside = not os.path.isabs(target) and not os.path.normpath(target).startswith("..")
+    if os.path.isdir(".git") and inside:
         entry = target.rstrip("/") + "/"
         lines = open(".gitignore", encoding="utf-8").read().splitlines() if os.path.exists(".gitignore") else []
         if entry not in lines:

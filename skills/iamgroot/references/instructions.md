@@ -14,12 +14,15 @@ Do this when `profile/profile.md` does not exist or has gaps. Run `iamgroot.py i
 4. **Build an ATS-friendly resume per market.** Put the facts from the candidate's resume into `profile/resume.json` (format: `resume.example.json`), word for word, and run `iamgroot.py resume --data profile/resume.json`. It fills the LaTeX template in `assets/resume-template.tex` and compiles one PDF per variant. A variant overrides only the header line and the target statement; never change experience, dates or skills. Read the extracted text of each PDF to confirm it parses cleanly and fits the intended page count. If no LaTeX engine is installed, use `--tex-only` and compile the `.tex` elsewhere, or use the candidate's existing PDF. A resume that names one country as its target, or states a sponsorship need for one country, is not sent to employers elsewhere.
 5. **Research a salary default per market** for the candidate's level when they have not given one, state the sources, and record the figure and range in the profile for the candidate to adjust.
 6. **Make a profile for each target country.** Rules on the right to work, the way pay is quoted, resume customs, language and form questions differ by country. For each country run `iamgroot.py country "<Country>"`, read its section in `countries.md`, ask the country questions listed there in one round, and write the answers into `profile/countries/<country>.md`. Before applying in a country, read its country profile after the main profile; where the two differ, the country profile decides. Check permit rules and salary thresholds on the official page named in `countries.md`: they change every year.
+7. **Check the timing before the first application.** Compare today's date with the candidate's start date and the lead time for each country (`countries.md`, "When to apply"). If the start date is further away than employers plan for, tell the candidate plainly, with the dates when applying will make sense, and get their decision before sending anything. Early applications are rejected for timing and the rejection can count against a later one.
 
 ## 2. Finding roles
 
-Search company career pages, public job-board APIs (`iamgroot.py discover` covers Greenhouse, Lever, Ashby, SmartRecruiters, Personio, Recruitee and Workable), the job boards for each target country listed in `job-portals.md`, startup career pages and recruiting platforms. Use a portal to find a role and the employer's own career page to apply. Where a country publishes the employers allowed to sponsor work permits, check the employer against that list. Include roles that state a future start date when the candidate's start date is not immediate.
+Search company career pages, public job-board APIs (`iamgroot.py discover` covers Greenhouse, Lever, Ashby, SmartRecruiters, Personio, Recruitee and Workable), the job boards for each target country listed in `job-portals.md`, startup career pages and recruiting platforms. Portals that publish an open feed are read by the same command: name them under `portals` in the search configuration and give search terms under `queries`. Use a portal to find a role and the employer's own career page to apply. Where a country publishes the employers allowed to sponsor work permits, check the employer against that list. Include roles that state a future start date when the candidate's start date is not immediate.
 
 When the candidate supplies a list or an image of company names, extract every name, find each company's official career page, and look for suitable roles there.
+
+At the start of a search and for every new country, search the web for job boards that are not yet in `job-portals.md`, look at each one, and add the useful ones (see "Keeping this list current" there). Boards change every year; a list that is never refreshed sends the candidate to the same crowded places as everyone else.
 
 ## 3. Matching
 
@@ -34,6 +37,7 @@ Do not apply to:
 - roles that require a language level, security clearance or citizenship the candidate does not have;
 - roles in a country where the candidate needs sponsorship when the employer states it does not sponsor;
 - roles outside the employment type and countries in the profile;
+- any role while the start date is outside the application window for that country, unless the posting itself states a matching start date or the candidate has decided to go ahead after being told;
 - anything clearly unsuitable, merely to raise the count.
 
 One role per company unless the posting clearly allows more; many employers cap applications per candidate.
@@ -69,7 +73,7 @@ Record every role in `profile/applications.csv` as soon as its outcome is known:
 2. The role is relevant to the candidate's field.
 3. Seniority is inside the profile's band.
 4. Location and work eligibility are compatible.
-5. The start date is compatible, or the candidate's availability is stated honestly.
+5. The start date is inside the application window for the country, and the candidate's availability is stated honestly.
 6. Language requirements are met.
 7. Sponsorship needs are compatible with the employer's stated policy.
 8. Every claim in the application is supported by the resume or the profile.
@@ -95,6 +99,8 @@ Never put candidate data in this repository outside `profile/`.
 - Every new answer from the candidate goes into `profile/profile.md` the moment it is given, so it is never asked twice.
 - Feedback on matches (roles the candidate liked, rejected or was rejected from) adjusts the target roles, exclusions and search configuration in the profile.
 - Every general lesson, one that would help any candidate in any field or country, goes into `lessons.md`. Every new form mechanic goes into `ats-playbook.md`.
+- Every new job board goes into `job-portals.md`, and every new fact about a country into `countries.md`, with the date it was checked.
+- When you see a risk to the whole search (timing, eligibility, a wrong target), raise it as a decision for the candidate before doing the work, not as a remark while doing it.
 
 ## 10. Report
 

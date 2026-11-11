@@ -1,6 +1,9 @@
 {
-  "_comment": "Copy to profile/search.json and edit. boards are company names tried on Greenhouse, Lever, Ashby, SmartRecruiters, Personio, Recruitee and Workable; the three regexes are case-insensitive.",
+  "_comment": "Copy to profile/search.json and edit. boards are company names tried on Greenhouse, Lever, Ashby, SmartRecruiters, Personio, Recruitee and Workable. portals are job boards with an open feed (names are in job-portals.md); queries are the search terms sent to them, so keep personal details out. The three regexes are case-insensitive; portal locations end with the country name in English.",
   "boards": ["examplecompany", "anotherco", "thirdstartup"],
+  "portals": ["arbeitnow", "landingjobs", "remotive"],
+  "queries": ["software engineer", "backend developer"],
+  "only_english": true,
   "include_title": "(engineer|developer|designer|analyst|manager)",
   "exclude_title": "\\b(intern|internship|principal|director|head|vp)\\b",
   "locations": "berlin|germany|london|united kingdom|remote"

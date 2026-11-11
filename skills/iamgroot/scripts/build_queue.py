@@ -15,6 +15,8 @@ import re
 
 def apply_url(j):
     u = j["url"]
+    if j.get("apply"):  # a portal listing that names the employer's own application page
+        return j["apply"]
     if j["ats"] == "ashby":
         return u.rstrip("/") + "/application"
     if j["ats"] == "lever":
